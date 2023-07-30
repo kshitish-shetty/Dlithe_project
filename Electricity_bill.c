@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+#define rate 0.59
 
 typedef struct
 {
