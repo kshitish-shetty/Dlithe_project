@@ -1,9 +1,5 @@
-
 fileManage.h
 filePrintFormat.h
-*.json
-*.h
-*.h
 printTheformat.c
 fileManage.h
 reff_mage-for_project_output.jpeg
@@ -11,3 +7,4 @@ temp.c
 tempMain.c
 test.txt
 test2.txt
+*.json
