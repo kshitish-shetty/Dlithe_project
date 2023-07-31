@@ -12,13 +12,12 @@ typedef struct
 
 int main(int argc,char **argv)
 {
-    int choice;
+    int choice,flag=1;
     printf ("\n************************************************\n");
     printf ("****************ELECTRICITY BILL****************\n");
     printf ("*******************GENERATOR********************\n");
     printf ("************************************************\n");
-    while (1)
-    {
+    do{
         printf ("\n_____MENU____\n\n");
         printf ("PRESS 1 to INPUT DATA.\n");
         printf ("PRESS 2 to GENERATE BILL.\n");
@@ -28,7 +27,7 @@ int main(int argc,char **argv)
         {
             default: exit(0);
         }
-    }
+    }while(flag);
     
     return 0;
 }
