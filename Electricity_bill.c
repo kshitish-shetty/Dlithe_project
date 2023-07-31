@@ -2,6 +2,7 @@
 #include<stdlib.h>
 #define rate 0.59
 
+struct fileInput(fp)
 typedef struct
 {
     char name[30];
@@ -21,11 +22,14 @@ int main(int argc,char **argv)
         printf ("\n_____MENU____\n\n");
         printf ("PRESS 1 to INPUT DATA.\n");
         printf ("PRESS 2 to GENERATE BILL.\n");
-        printf ("PRESS ANYKEY to EXIT.\n");
+        printf ("PRESS 3 to EXIT.\n");
         scanf ("%d", &choice);
         switch(choice)
         {
-            default: exit(0);
+
+            case 3: exit(0);
+
+            default: printf("INVALID INPUT. please try again.");
         }
     }while(1);
     
