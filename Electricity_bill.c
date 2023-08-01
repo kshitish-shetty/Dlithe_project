@@ -110,7 +110,7 @@ int main(int argc,char **argv)
 				exit(0);
 			default:
 				system("cls");
-				printf("Incorrect Input");
+				printf(" Invalid Input");
 				printf("\n Press any key to continue");
 				getch();
 		}
