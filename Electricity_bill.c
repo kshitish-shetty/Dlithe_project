@@ -3,14 +3,10 @@
 #include<stdlib.h>
 #include<time.h>
 #define rate 0.59
+#include "struct.h"
+// acces the struct by:
+// Info <psuedo_obj_name>
 
-typedef struct
-{
-    char name[30];
-    char ID[10];
-    int  units;
-    double amount;
-} Info;
 
 int main(int argc,char **argv)
 {
