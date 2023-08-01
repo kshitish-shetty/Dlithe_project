@@ -18,8 +18,7 @@ int main(int argc,char **argv)
     time_t t;
 	time(&t);
     system("cls");   // FOR CLEARING SCREEN
-	printf(" -------------------------------------------------------------------------\n");
-	printf("|                                                                         |\n");      
+	printf(" -------------------------------------------------------------------------\n");      
 	printf("|                                                                         |\n");
 	printf("|  OOOOOO   OOOOOO OOOOOO OOOOOO OOOOOO OOOOOO O      O OOOOOOO  OOOOOO   |\n");
 	printf("|  O        O    O O      O        O      O    O O    O O        O        |\n");
@@ -52,9 +51,8 @@ int main(int argc,char **argv)
 		system("cls");
 		for(i=0;i<80;i++){		
             printf("-");
-	    	printf("\n");
         }
-		printf("   ******************************  |MAIN MENU|  ***************************** \n");
+		printf("\n   ******************************  |MAIN MENU|  ***************************** \n");
 		for(i=0;i<80;i++){
 	    	printf("-");
         }
@@ -97,8 +95,17 @@ int main(int argc,char **argv)
 			    break;
 			case 6:
 				system("cls");
-				printf("\n\n\t *****THANK YOU*****");
-				printf("\n\t FOR USING OUR SERVICE");
+				printf(" -------------------------------------------------------------------------\n");
+                printf("|                                                                         |\n");
+                printf("|      000000     0     0        0        0       0    0   0   000000     |\n");
+                printf("|        0        0     0       0 0       0 0     0    0  0    0          |\n");
+                printf("|        0        0     0      0   0      0  0    0    00      0          |\n");
+                printf("|        0        0000000     0000000     0   0   0    0 0     000000     |\n");
+                printf("|        0        0     0    0       0    0    0  0    0  0         0     |\n");
+                printf("|        0        0     0   0         0   0     0 0    0   0   000000     |\n");
+                printf("|                                                                         |\n");
+                printf(" -------------------------------------------------------------------------\n");
+				printf("\n\t\t    FOR USING OUR SERVICE !!!");
 				getch();
 				exit(0);
 			default:
