@@ -2,15 +2,11 @@
 #include<conio.h>
 #include<stdlib.h>
 #include<time.h>
+
+#include"fileinput.h"
+
 #define rate 0.59
 
-typedef struct
-{
-    char name[30];
-    char ID[10];
-    int  units;
-    double amount;
-} Info;
 
 int main(int argc,char **argv)
 {
@@ -84,14 +80,19 @@ int main(int argc,char **argv)
         switch(choice)           // SWITCH STATEMENT
 		{	
 			case 1:
+				getch();
 				break;
 			case 2:
+				getch();
 				break;
 			case 3:
+				getch();
 			    break;
 			case 4:
+				getch();
 			    break;
 			case 5:
+				getch();
 			    break;
 			case 6:
 				system("cls");
@@ -113,6 +114,7 @@ int main(int argc,char **argv)
 				printf(" Invalid Input");
 				printf("\n Press any key to continue");
 				getch();
+				break;
 		}
 	}while(1);
     return 0;

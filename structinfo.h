@@ -4,4 +4,4 @@ typedef struct
     char ID[10];
     int  units;
     double amount;
-} Info;
+}Info;
