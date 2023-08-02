@@ -101,16 +101,15 @@ int main(int argc,char **argv)
 				system("cls");
 				printf(" -------------------------------------------------------------------------\n");
                 printf("|                                                                         |\n");
-                printf("|      000000     0     0        0        0       0    0   0   000000     |\n");
-                printf("|        0        0     0       0 0       0 0     0    0  0    0          |\n");
-                printf("|        0        0     0      0   0      0  0    0    00      0          |\n");
-                printf("|        0        0000000     0000000     0   0   0    0 0     000000     |\n");
-                printf("|        0        0     0    0       0    0    0  0    0  0         0     |\n");
-                printf("|        0        0     0   0         0   0     0 0    0   0   000000     |\n");
+                printf("|      000000     0     0        0        0       0    0  0    000000     |\n");
+                printf("|        0        0     0       0 0       0 0     0    0 0     0          |\n");
+                printf("|        0        0000000      0 0 0      0  0    0    00      000000     |\n");
+                printf("|        0        0     0     0     0     0   0   0    0 0          0     |\n");
+                printf("|        0        0     0    0       0    0    0  0    0  0    000000     |\n");
                 printf("|                                                                         |\n");
                 printf(" -------------------------------------------------------------------------\n");
 				printf("\n\t\t    FOR USING OUR SERVICE !!!");
-				printf("\n\n\t  Press 'N' To CANCEL.    Press 'Y' To CONTINUE.");
+				printf("\n\n\t  Press 'Y' To CONTINUE.    Press 'N' To CANCEL.");
 				ch=getch();
 				if(ch=='N'||ch=='n')
 				goto Home;
@@ -118,8 +117,8 @@ int main(int argc,char **argv)
 				exit(0);
 			default:
 				system("cls");
-				printf(" Invalid Input");
-				printf("\n Press any key to continue");
+				printf("\n\t\tInvalid Input");
+				printf("\n\t  Press any key to continue");
 				getch();
 				break;
 		}
