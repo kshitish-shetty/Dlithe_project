@@ -48,22 +48,60 @@ int main(int argc,char **argv)
     printf("-");
 	printf("\n\t\t    Press 'A' For ADMIN Login.      Press ANYKEY For MAIN MENU.\n");
 	ch = getch();
-	if(ch=='a'||ch=='A')
-	{
-		system("cls");     
-		for(i=0;i<80;i++){		
-		    printf("-");
-		}
-		printf("\n   *****************************  |ADMIN LOGIN| ***************************** \n");
-		for(i=0;i<80;i++){
-			printf("-");
-		}
-		printf("\n");
-		getch();
+	if(!(ch=='a'||ch=='A'))
+		goto MainMenu;
+	char username[10];//password[10];
+	int flag=0;
+	Admin:
+	system("cls");   
+	printf("\t");  
+	for(i=0;i<80;i++){		
+	    printf("-");
 	}
-	else
-	while(1)     // INFINITE LOOP
-	{
+	printf("\n \t   *****************************  |ADMIN LOGIN| ***************************** \n\t");
+	for(i=0;i<80;i++){
+		printf("-");
+	}
+	printf("\n\n\n\n");
+	printf("\n\t\t\t\t----------------------------------");
+	printf("\n\t\t\t\t|         ENTER USERNAME         |");
+	printf("\n\t\t\t\t----------------------------------");
+	printf("\n\t\t\t\t\t  ---> ");
+	scanf("%s",username);
+	printf("\n\t\t\t\t-----------------------------------");
+	printf("\n\t\t\t\t|         ENTER PASSWORD          |");
+	printf("\n\t\t\t\t-----------------------------------");
+	printf("\n\t\t\t\t\t  ---> ");
+	
+	char password[]={'C','P','0','2','0','\0'};
+	if(!strcmp(username,"ADMIN")&&!strcmp(password,"CP020"))	
+		printf("\n\n\t\t\t\t\t  WELCOME ADMIN.\n\n\t");
+	else{
+		printf("\n\n\t\t\t\t    INCORRECT LOGIN CREDENTIALS.\n\n\t");
+		flag=1;		
+	}	
+	for(i=0;i<80;i++)
+    	printf("-");
+	printf("\n\t\t\tCurrent date and time : %s",ctime(&t));
+	printf("\t");
+	for(i=0;i<80;i++)
+    	printf("-");
+	if(flag){
+		printf("\n\t\t    Press 'H' For Home.             Press ANYKEY For RETRY.\n");
+		ch = getch();
+		if(ch=='h'||ch=='H')
+			goto Home;
+		else
+			goto Admin;
+	}
+	else{
+		system("cls");
+		printf("WELCOME ADMIN");
+		getch();
+	}		
+
+	while(1)     
+	{	MainMenu:
 		system("cls"); 
 		printf("\t");    
 		for(i=0;i<80;i++){		
