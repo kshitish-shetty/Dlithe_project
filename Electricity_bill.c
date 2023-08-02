@@ -50,6 +50,7 @@ int main(int argc,char **argv)
 	ch = getch();
 	if(ch=='a'||ch=='A')
 	{
+		char username[10],password[10],pass;
 		system("cls");     
 		for(i=0;i<80;i++){		
 		    printf("-");
@@ -58,10 +59,30 @@ int main(int argc,char **argv)
 		for(i=0;i<80;i++){
 			printf("-");
 		}
-		printf("\n");
+		printf("\n\n\n\n");
+		printf("\n\t\t\t----------------------------------");
+		printf("\n\t\t\t|         ENTER USERNAME         |");
+		printf("\n\t\t\t----------------------------------");
+		printf("\n\t\t\t\t  ---> ");
+		scanf("%s",username);
+		printf("\n\t\t\t-----------------------------------");
+		printf("\n\t\t\t|         ENTER PASSWORD          |");
+		printf("\n\t\t\t-----------------------------------");
+		printf("\n\t\t\t\t  ---> ");
+		int p=0;
+    	do{
+        	password[p]=getch();
+        	if(password[p]!='\r'){
+            printf("*");
+       		}
+       		p++;
+    	}while(password[p-1]!='\r');
+    	printf("\nYou have entered %s as password.",password);
+		if(!strcmp(username,"ADMIN")&&!strcmp(password,"CP020")){
+		printf("WELCOME ADMIN.");
 		getch();
+		}
 	}
-	else
 	while(1)     // INFINITE LOOP
 	{
 		system("cls"); 
