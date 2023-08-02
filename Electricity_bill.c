@@ -2,6 +2,7 @@
 #include<conio.h>
 #include<stdlib.h>
 #include<time.h>
+#include <windows.h>
 
 #include"fileinput.h"
 
@@ -15,6 +16,7 @@ int main(int argc,char **argv)
     int i;
     time_t t;
 	time(&t);
+	SetConsoleTitle("Electricity Bill Generator");
     system("cls");   // FOR CLEARING SCREEN
 	printf(" ---------------------------------------------------------------------------------\n");      
 	printf("|                                                                                 |\n");
