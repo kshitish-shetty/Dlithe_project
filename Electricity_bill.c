@@ -12,12 +12,13 @@
 
 int main(int argc,char **argv)
 {   
-    char choice;
+    char choice,ch;
     int i;
     time_t t;
 	time(&t);
 	SetConsoleTitle("Electricity Bill Generator");
-    system("cls");   // FOR CLEARING SCREEN
+    Home:
+	system("cls");   // FOR CLEARING SCREEN
 	printf(" ---------------------------------------------------------------------------------\n");      
 	printf("|                                                                                 |\n");
 	printf("|  OOOOOO    OOOOOO  OOOOOO  OOOOOO  OOOOOO  OOOOOO  O      O  OOOOOOO   OOOOOO   |\n");
@@ -67,7 +68,7 @@ int main(int argc,char **argv)
 		printf("\n-----------------------------------");
 		printf(" \n Enter 4 -> ");
 		printf("\n-----------------------------------");
-		printf(" \n Enter 5 -> Generate Bill");
+		printf(" \n Enter 5 -> Return to Home Screen");
 		printf("\n-----------------------------------");
 		printf(" \n Enter 6 -> Exit");
 		printf("\n-----------------------------------");
@@ -90,12 +91,12 @@ int main(int argc,char **argv)
 			case '3':
 			    
 			case '4':
-			    
-			case '5':
-			    system("cls");
+				system("cls");
 				printf("cumming soon. ;)");
 				getch();
-			    break;
+				break;
+			case '5':
+			    goto Home;
 			case '6':
 				system("cls");
 				printf(" -------------------------------------------------------------------------\n");
@@ -109,7 +110,11 @@ int main(int argc,char **argv)
                 printf("|                                                                         |\n");
                 printf(" -------------------------------------------------------------------------\n");
 				printf("\n\t\t    FOR USING OUR SERVICE !!!");
-				getch();
+				printf("\n\n\t  Press 'N' To CANCEL.    Press 'Y' To CONTINUE.");
+				ch=getch();
+				if(ch=='N'||ch=='n')
+				goto Home;
+				else if(ch=='Y'||ch=='y')
 				exit(0);
 			default:
 				system("cls");
