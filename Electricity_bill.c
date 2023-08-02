@@ -7,10 +7,7 @@
 
 #define rate 0.59
 
-<<<<<<< HEAD
-=======
-#include"struct.h"
->>>>>>> main
+//#include"struct.h"
 
 int main(int argc,char **argv)
 {   
@@ -84,24 +81,6 @@ int main(int argc,char **argv)
         choice = getch();
         switch(choice) // SWITCH STATEMENT
 		{	
-<<<<<<< HEAD
-			case 1:
-				getch();
-				break;
-			case 2:
-				getch();
-				break;
-			case 3:
-				getch();
-			    break;
-			case 4:
-				getch();
-			    break;
-			case 5:
-				getch();
-			    break;
-			case 6:
-=======
 			case '1':
 				
 			case '2':
@@ -116,7 +95,6 @@ int main(int argc,char **argv)
 				getch();
 			    break;
 			case '6':
->>>>>>> main
 				system("cls");
 				printf(" -------------------------------------------------------------------------\n");
                 printf("|                                                                         |\n");
