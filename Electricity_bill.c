@@ -10,13 +10,23 @@
 
 //#include"struct.h"
 
+void setConsoleSize(int width, int height) {
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    SMALL_RECT windowRect = { 0, 0, width - 1, height - 1 };
+    COORD bufferSize = { width, height };
+
+    SetConsoleWindowInfo(hConsole, TRUE, &windowRect);
+    SetConsoleScreenBufferSize(hConsole, bufferSize);
+}
+
 int main(int argc,char **argv)
 {   
     char choice,ch;
-    int i;
+    int i,width=99,height=30;
     time_t t;
 	time(&t);
 	SetConsoleTitle("Electricity Bill Generator");
+    setConsoleSize(width,height);
     Home:
 	system("cls");   // FOR CLEARING SCREEN
 	printf("\t ---------------------------------------------------------------------------------\n");      
@@ -50,8 +60,8 @@ int main(int argc,char **argv)
 	ch = getch();
 	if(!(ch=='a'||ch=='A'))
 		goto MainMenu;
-	char username[10];//password[10];
-	int flag=0;
+	char username[20],password[20];
+	int pwCount=0;
 	Admin:
 	system("cls");   
 	printf("\t");  
@@ -72,21 +82,31 @@ int main(int argc,char **argv)
 	printf("\n\t\t\t\t|         ENTER PASSWORD          |");
 	printf("\n\t\t\t\t-----------------------------------");
 	printf("\n\t\t\t\t\t  ---> ");
-	
-	char password[]={'C','P','0','2','0','\0'};
-	if(!strcmp(username,"ADMIN")&&!strcmp(password,"CP020"))	
-		printf("\n\n\t\t\t\t\t  WELCOME ADMIN.\n\n\t");
-	else{
+	i=0;
+    while ((ch = getch()) != 13) {
+        if (ch == 8) { // Backspace ASCII value
+            if (i > 0) {
+                // Move cursor back, overwrite the character with a space, and move cursor back again
+                printf("\b \b");
+                i--;
+            }
+        } else if (i < 20) {
+            password[i++] = ch;
+            printf("*");
+        }
+    }
+    password[i] = '\0';
+	if(strcmp(username,"ADMIN")||strcmp(password,"CP020")){	
 		printf("\n\n\t\t\t\t    INCORRECT LOGIN CREDENTIALS.\n\n\t");
-		flag=1;		
-	}	
-	for(i=0;i<80;i++)
-    	printf("-");
-	printf("\n\t\t\tCurrent date and time : %s",ctime(&t));
-	printf("\t");
-	for(i=0;i<80;i++)
-    	printf("-");
-	if(flag){
+		pwCount++;			
+		for(i=0;i<80;i++)
+    		printf("-");
+		printf("\n\t\t\tCurrent date and time : %s",ctime(&t));
+		printf("\t");
+		for(i=0;i<80;i++)
+    		printf("-");
+	}
+	if(pwCount!=0){
 		printf("\n\t\t    Press 'H' For Home.             Press ANYKEY For RETRY.\n");
 		ch = getch();
 		if(ch=='h'||ch=='H')
@@ -112,20 +132,20 @@ int main(int argc,char **argv)
 	    	printf("-");
         }
 		printf("\n");
-		printf("\t\t\t    *Please enter your choice for menu*:");
+		printf("\t\t\t     *Please enter your choice for menu*");
 		printf("\n");
 		printf("\n\t\t\t    ------------------------------------");
-		printf(" \n\t\t\t    | Enter 1 -> Enter Customer Details |");
+		printf(" \n\t\t\t    | PRESS 1 -> Enter Customer Details |");
 		printf("\n\t\t\t    ------------------------------------");
-		printf(" \n\t\t\t    | Enter 2 ->                        |");
+		printf(" \n\t\t\t    | PRESS 2 ->                        |");
 		printf("\n\t\t\t    ------------------------------------");
-		printf(" \n\t\t\t    | Enter 3 ->                        |");
+		printf(" \n\t\t\t    | PRESS 3 ->                        |");
 		printf("\n\t\t\t    -------------------------------------");
-		printf(" \n\t\t\t    | Enter 4 ->                        |");
+		printf(" \n\t\t\t    | PRESS 4 ->                        |");
 		printf("\n\t\t\t    -------------------------------------");
-		printf(" \n\t\t\t    | Enter 5 -> Return to Home Screen  |");
+		printf(" \n\t\t\t    | PRESS 5 -> Return to Home Screen  |");
 		printf("\n\t\t\t    -------------------------------------");
-		printf(" \n\t\t\t    | Enter 6 -> Exit                   |");
+		printf(" \n\t\t\t    | PRESS 6 -> Exit                   |");
 		printf("\n\t\t\t    -------------------------------------\n");
 		printf("\n\t");
 		for(i=0;i<80;i++){
@@ -136,7 +156,6 @@ int main(int argc,char **argv)
 		for(i=0;i<80;i++){
 		    printf("-");
         }
-        printf("\n\tSELECTION----> ");
         choice = getch();
         switch(choice) // SWITCH STATEMENT
 		{	
