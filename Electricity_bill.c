@@ -76,12 +76,12 @@ int main(int argc,char **argv)
 	printf("\n\t\t\t\t----------------------------------");
 	printf("\n\t\t\t\t|         ENTER USERNAME         |");
 	printf("\n\t\t\t\t----------------------------------");
-	printf("\n\t\t\t\t\t  ---> ");
+	printf("\n\t\t\t\t\t    ");
 	scanf("%s",username);
 	printf("\n\t\t\t\t-----------------------------------");
 	printf("\n\t\t\t\t|         ENTER PASSWORD          |");
 	printf("\n\t\t\t\t-----------------------------------");
-	printf("\n\t\t\t\t\t  ---> ");
+	printf("\n\t\t\t\t\t    ");
 	i=0;
     while ((ch = getch()) != 13) {
         if (ch == 8) { // Backspace ASCII value
@@ -92,7 +92,7 @@ int main(int argc,char **argv)
             }
         } else if (i < 20) {
             password[i++] = ch;
-            printf("*");
+            //printf("*");
         }
     }
     password[i] = '\0';
@@ -156,6 +156,7 @@ int main(int argc,char **argv)
 		for(i=0;i<80;i++){
 		    printf("-");
         }
+		printf("\n");
         choice = getch();
         switch(choice) // SWITCH STATEMENT
 		{	
