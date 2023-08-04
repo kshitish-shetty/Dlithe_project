@@ -26,8 +26,8 @@ void readDataFromFile(Info** head, const char* filename) {
 }
 
 // Function to print the linked list in forward order
-void printForward(Info* head) {
-    Info* current = head;
+void printForward(Info** head) {
+    Info* current = *head;
     while (current != NULL) {
         printf("Name: %s, ID: %s, Month: %d, Units: %d, Amount: %lf\n", current->name, current->ID, current->month, current->units, current->amount);
         current = current->next;
@@ -38,14 +38,14 @@ int main() {
     Info* head = NULL;
 
     // Provide the user-specified file name
-    const char* filename = "data.txt";
+    const char* filename = "data.csv";
 
     // Read data from the file and store it in a linked list
     readDataFromFile(&head, filename);
 
     // Printing the linked list in forward order
     printf("Data from the file stored in the linked list:\n");
-    printForward(head);
+    printForward(&head);
 
     // Freeing the memory used by the linked list
     freeList(head);
