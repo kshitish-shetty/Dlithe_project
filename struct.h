@@ -1,6 +1,7 @@
 #ifndef STRUCT_H
 #define STRUCT_H
 
+#include<stdlib.h>
 #include<string.h>
 
 typedef struct Info {
