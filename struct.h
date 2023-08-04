@@ -1,6 +1,7 @@
 #ifndef STRUCT_H
 #define STRUCT_H
 
+#include<string.h>
 
 typedef struct Info {
     char name[30];
@@ -8,5 +9,34 @@ typedef struct Info {
     int  units;
     double amount;
 }Info;
+
+
+// Function to create new node
+Info* createNode(char *name, char *ID, int month, int  units, double amount) {
+    Info* newNode = (Info*)malloc(sizeof(Info));
+    strcpy(newNode->name,name);
+    strcpy(newNode->ID,ID);
+    newNode->month = month;
+    newNode->units = units;
+    newNode->amount = amount;
+    newNode->prev = NULL;
+    newNode->next = NULL;
+    return newNode;
+}
+
+// Function to insert node at the end of linked list
+void append(Info** head, int data) {
+    Info* newNode = createNode(data);
+    if (*head == NULL) {
+        *head = newNode;
+        return;
+    }
+    Info* current = *head;
+    while (current->next != NULL) {
+        current = current->next;
+    }
+    current->next = newNode;
+    newNode->prev = current;
+}
 
 #endif
