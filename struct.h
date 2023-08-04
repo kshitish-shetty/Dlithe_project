@@ -1,6 +1,11 @@
 #ifndef STRUCT_H
 #define STRUCT_H
 
+<<<<<<< Updated upstream
+=======
+#include<string.h>
+#include<stdlib.h>
+>>>>>>> Stashed changes
 
 typedef struct Info {
     char name[30];
