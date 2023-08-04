@@ -43,6 +43,7 @@ void append(Info** head, char* name, char* ID, int month, int units, double amou
     newNode->prev = current;
 }
 
+// Function to free memory after use 
 void freeList(Info* head) {
     Info* current = head;
     while (current != NULL) {

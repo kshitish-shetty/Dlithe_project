@@ -16,9 +16,9 @@ void readDataFromFile(Info** head, const char* filename) {
     char ID[10];
     int month;
     int units;
-    double amount;
+    double amount=0;
 
-    while (fscanf(file, "%s %s %d %d %lf", name, ID, &month, &units, &amount) == 5) {
+    while (fscanf(file, "%s %s %d %d %lf", name, ID, &month, &units) == 4) {
         append(head, name, ID, month, units, amount);
     }
 
