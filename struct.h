@@ -6,8 +6,11 @@
 typedef struct Info {
     char name[30];
     char ID[10];
+    int month;
     int  units;
     double amount;
+   struct Info *prev;
+   struct Info *next;
 }Info;
 
 
@@ -25,8 +28,8 @@ Info* createNode(char *name, char *ID, int month, int  units, double amount) {
 }
 
 // Function to insert node at the end of linked list
-void append(Info** head, int data) {
-    Info* newNode = createNode(data);
+void append(Info** head, char *name, char *ID, int month, int  units, double amount) {
+    Info* newNode = createNode(name, ID, month, units, amount);
     if (*head == NULL) {
         *head = newNode;
         return;
