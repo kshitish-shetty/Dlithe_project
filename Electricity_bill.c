@@ -4,11 +4,9 @@
 #include<time.h>
 #include <windows.h>
 
-#include"fileinput.h"
-
 #define rate 0.59
 
-//#include"struct.h"
+#include"struct.h"
 
 void setConsoleSize(int width, int height) {
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -54,6 +52,7 @@ int main(int argc,char **argv)
 	printf("\t\t\t*************************************************\n\n\t");
 	for(i=0;i<80;i++)
 		printf("-");
+	time(&t);
 	printf("\n\t\t\tCurrent date and time : %s",ctime(&t));
 	printf("\t");
 	for(i=0;i<80;i++)
@@ -111,7 +110,7 @@ int main(int argc,char **argv)
             }
         } else if (i < 20) {
             password[i++] = ch;
-            //printf("*");
+            printf("*");
         }
     }
     password[i] = '\0';
@@ -140,10 +139,11 @@ int main(int argc,char **argv)
 			printf("\n\t\t\t   ---------------------------------------");
 			printf("\n\t\t\t   |  PRESS 4 -> Exit                    |");
 			printf("\n\t\t\t   ---------------------------------------\n");
-			printf("\n\n\n\n\t");
+			printf("\n\n\n\n\n\t");
 			for(i=0;i<80;i++){
 			    printf("-");
 			}
+			time(&t);
 			printf("\n\t\t\tCurrent date and time : %s",ctime(&t));
 			printf("\t");
 			for(i=0;i<80;i++){
@@ -178,6 +178,7 @@ int main(int argc,char **argv)
 	pw_count++;			
 	for(i=0;i<80;i++)
 		printf("-");
+	time(&t);
 	printf("\n\t\t\tCurrent date and time : %s",ctime(&t));
 	printf("\t");
 	for(i=0;i<80;i++)
@@ -218,10 +219,11 @@ int main(int argc,char **argv)
 		printf("\n\t\t\t    -------------------------------------");
 		printf("\n\t\t\t    | PRESS 4 -> Exit                   |");
 		printf("\n\t\t\t    -------------------------------------\n");
-		printf("\n\n\n\n\t");
+		printf("\n\n\n\n\n\t");
 		for(i=0;i<80;i++){
 		    printf("-");
         }
+		time(&t);
 	    printf("\n\t\t\tCurrent date and time : %s",ctime(&t));
         printf("\t");
 		for(i=0;i<80;i++){
