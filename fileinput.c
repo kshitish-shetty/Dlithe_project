@@ -2,66 +2,53 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX_ROWS 100
-#define MAX_COLS 10
-#define MAX_FIELD_LEN 50
+#include"struct.h"
 
-// Define your structure to hold the CSV data
-struct CSVData {
-    char fields[MAX_ROWS][MAX_COLS][MAX_FIELD_LEN];
-    int num_rows;
-    int num_cols;
-};
-
-// Function to read CSV file and store data in the structure
-int readCSVFile(const char *filename, struct CSVData *csvData) {
-    FILE *file = fopen(filename, "r");
-    if (!file) {
-        printf("Error: Unable to open the file '%s'.\n", filename);
-        return -1;
+// Function to read data from the file and store it in a linked list
+void readDataFromFile(Info** head, const char* filename) {
+    FILE* file = fopen(filename, "r");
+    if (file == NULL) {
+        printf("Error opening file.\n");
+        return;
     }
 
-    char buffer[MAX_FIELD_LEN];
-    int row = 0, col = 0;
+    char name[30];
+    char ID[10];
+    int month;
+    int units;
+    double amount;
 
-    while (fgets(buffer, sizeof(buffer), file) && row < MAX_ROWS) {
-        char *field = strtok(buffer, ",");
-        col = 0;
-
-        while (field && col < MAX_COLS) {
-            strncpy(csvData->fields[row][col], field, MAX_FIELD_LEN);
-            field = strtok(NULL, ",");
-            col++;
-        }
-
-        csvData->num_cols = col;
-        row++;
+    while (fscanf(file, "%s %s %d %d %lf", name, ID, &month, &units, &amount) == 5) {
+        append(head, name, ID, month, units, amount);
     }
-
-    csvData->num_rows = row;
 
     fclose(file);
-    return 0;
+}
+
+// Function to print the linked list in forward order
+void printForward(Info* head) {
+    Info* current = head;
+    while (current != NULL) {
+        printf("Name: %s, ID: %s, Month: %d, Units: %d, Amount: %lf\n", current->name, current->ID, current->month, current->units, current->amount);
+        current = current->next;
+    }
 }
 
 int main() {
-    char filename[MAX_FIELD_LEN];
-    struct CSVData csvData;
-    
-    printf("Enter the CSV file path: ");
-    scanf("%s", filename);
+    Info* head = NULL;
 
-    int result = readCSVFile(filename, &csvData);
+    // Provide the user-specified file name
+    const char* filename = "data.txt";
 
-    if (result == 0) {
-        printf("CSV File has been read successfully.\n");
-        printf("Number of rows: %d\n", csvData.num_rows);
-        printf("Number of columns: %d\n", csvData.num_cols);
+    // Read data from the file and store it in a linked list
+    readDataFromFile(&head, filename);
 
-        // You can access the CSV data using csvData.fields[row][col]
-        // For example, printing the first row and first column:
-        printf("Data at [0][0]: %s\n", csvData.fields[0][0]);
-    }
+    // Printing the linked list in forward order
+    printf("Data from the file stored in the linked list:\n");
+    printForward(head);
+
+    // Freeing the memory used by the linked list
+    freeList(head);
 
     return 0;
 }

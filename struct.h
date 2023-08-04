@@ -29,18 +29,27 @@ Info* createNode(char *name, char *ID, int month, int  units, double amount) {
 }
 
 // Function to insert node at the end of linked list
-void append(Info* head, char *name, char *ID, int month, int  units, double amount) {
+void append(Info** head, char* name, char* ID, int month, int units, double amount) {
     Info* newNode = createNode(name, ID, month, units, amount);
-    if (head == NULL) {
-        head = newNode;
+    if (*head == NULL) {
+        *head = newNode;
         return;
     }
-    Info* current = head;
+    Info* current = *head;
     while (current->next != NULL) {
         current = current->next;
     }
     current->next = newNode;
     newNode->prev = current;
+}
+
+void freeList(Info* head) {
+    Info* current = head;
+    while (current != NULL) {
+        Info* temp = current;
+        current = current->next;
+        free(temp);
+    }
 }
 
 #endif
