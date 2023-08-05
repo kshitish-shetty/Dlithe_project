@@ -55,7 +55,8 @@ void readFileData(Info** head, char* filename) {
             char ID[10]="";
             int month=0;
             int unit=0;
-        }     
+        }   
+          
         fieldCount++;
         fieldCount=fieldCount%4;
 
