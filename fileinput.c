@@ -24,7 +24,7 @@ void readFileData(Info** head, char* filename) {
     int unit=0;
     int fieldCount=0;
 
-    while ((fscanf(file,"%[^,\r]%c",buffer,&enter)) != EOF) { // %[^,\r]%c this chunk meaning: read till (,) and (\r) carriage return [for more watch video reff: https://youtu.be/k0BIzHDBkwE]
+    while ((fscanf(file,"%[^,\n]%c",buffer,&enter)) != EOF) { // %[^,\r]%c this chunk meaning: read till (,) and (\r) carriage return [for more watch video reff: https://youtu.be/k0BIzHDBkwE]
         // printf("%s ",buffer);
             // char name[30]="";
             // char ID[10]="";
@@ -54,8 +54,7 @@ void readFileData(Info** head, char* filename) {
                     return;
             }   
         
-        fieldCount++;
-            
+        fieldCount++;  
         fieldCount=fieldCount%4;     
 
     }  
