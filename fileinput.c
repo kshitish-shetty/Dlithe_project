@@ -43,6 +43,12 @@ void readFileData(Info** head, char* filename) {
                     break;
                 case 3:
                     unit= atoi(buffer);
+                    append(head, name, ID, month, unit, 0);
+                    char name[30]="";
+                    char ID[10]="";
+                    int month=0;
+                    int unit=0;
+                    int fieldCount=0;
                     break;
                 default:
                     printf("FILE READING ERROR.");
@@ -51,16 +57,7 @@ void readFileData(Info** head, char* filename) {
         
         fieldCount++;
             
-        fieldCount=fieldCount%4;
-        
-        if(fieldCount==3){
-            append(head, name, ID, month, unit, 0);
-            char name[30]="";
-            char ID[10]="";
-            int month=0;
-            int unit=0;
-            int fieldCount=0;
-        }     
+        fieldCount=fieldCount%4;     
 
     }  
     
