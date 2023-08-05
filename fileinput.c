@@ -49,10 +49,6 @@ void readFileData(Info** head, char* filename) {
                     return;
             }   
         
-        fieldCount++;
-            
-        fieldCount=fieldCount%4;
-        
         if(fieldCount==3){
             append(head, name, ID, month, unit, 0);
             char name[30]="";
@@ -60,6 +56,8 @@ void readFileData(Info** head, char* filename) {
             int month=0;
             int unit=0;
         }     
+        fieldCount++;
+        fieldCount=fieldCount%4;
 
     }  
     
