@@ -5,31 +5,34 @@
 #include"struct.h"
 
 // Function to read data from the file and store it in a linked list
-void readDataFromFile(Info** head, const char* filename) {
+void readFileData(Info** head, char* filename) {
+    
     FILE* file = fopen(filename, "r");
+    
     if (file == NULL) {
-        printf("Error opening file.\n");
+        printf("Error opening file %s.\n", filename);
+        perror("Error");
         return;
     }
 
-    char name[30];
-    char ID[10];
-    int month;
-    int units;
-    double amount=0;
-
-    while (fscanf(file, "%s %s %d %d %lf", name, ID, &month, &units) == 4) {
-        append(head, name, ID, month, units, amount);
-    }
+    char name[30]="";
+    char ID[10]="";
+    int month=0;
+    int unit=0;
+    
+    
+    
+    append(head, name, ID, month, unit, 0);
 
     fclose(file);
 }
 
-// Function to print the linked list in forward order
-void printForward(Info** head) {
-    Info* current = *head;
+
+// Function to print the linked list
+void printLinkedList(Info* head) {
+    Info* current = head;
     while (current != NULL) {
-        printf("Name: %s, ID: %s, Month: %d, Units: %d, Amount: %lf\n", current->name, current->ID, current->month, current->units, current->amount);
+        printf("Name: %s, ID: %s, Month: %d, Units: %d\n", current->name, current->ID, current->month, current->units);
         current = current->next;
     }
 }
@@ -38,14 +41,15 @@ int main() {
     Info* head = NULL;
 
     // Provide the user-specified file name
-    const char* filename = "data.csv";
+    char* filename;
 
-    // Read data from the file and store it in a linked list
-    readDataFromFile(&head, filename);
+    scanf("%s",filename);
 
-    // Printing the linked list in forward order
-    printf("Data from the file stored in the linked list:\n");
-    printForward(&head);
+    readFileData(&head,filename);
+
+    printLinkedList(head);
+    // After printing, reset the file pointer to the beginning of the file
+
 
     // Freeing the memory used by the linked list
     freeList(head);
