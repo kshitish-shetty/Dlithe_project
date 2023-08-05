@@ -44,11 +44,10 @@ void readFileData(Info** head, char* filename) {
                 case 3:
                     unit= atoi(buffer);
                     append(head, name, ID, month, unit, 0);
-                    char name[30]="";
-                    char ID[10]="";
+                    strcpy(name,"");
+                    strcpy(ID,"");
                     int month=0;
                     int unit=0;
-                    int fieldCount=0;
                     break;
                 default:
                     printf("FILE READING ERROR.");
