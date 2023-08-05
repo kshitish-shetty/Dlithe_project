@@ -24,13 +24,7 @@ void readFileData(Info** head, char* filename) {
     int unit=0;
     int fieldCount=0;
 
-    while ((fscanf(file,"%[^,\n]%c",buffer,&enter)) != EOF) { // %[^,\r]%c this chunk meaning: read till (,) and (\r) carriage return [for more watch video reff: https://youtu.be/k0BIzHDBkwE]
-        // printf("%s ",buffer);
-            // char name[30]="";
-            // char ID[10]="";
-            // int month=0;
-            // int unit=0;
-            
+    while ((fscanf(file,"%[^,\n]%c",buffer,&enter)) != EOF) { 
             switch(fieldCount){
                 case 0:
                     strcpy(name,buffer);
@@ -56,7 +50,7 @@ void readFileData(Info** head, char* filename) {
             int month=0;
             int unit=0;
         }   
-          
+
         fieldCount++;
         fieldCount=fieldCount%4;
 
