@@ -17,12 +17,74 @@ void setConsoleSize(int width, int height) {
     SetConsoleScreenBufferSize(hConsole, bufferSize);
 }
 
+char menu(int choice_menu){
+	time_t t;
+	system("cls"); 
+	printf("\n\t");    
+	for(int i=0;i<80;i++){		
+	    printf("-");
+	}
+	if(choice_menu==0)
+		printf("\n \t  ****************************  |ADMIN OPTIONS|  *************************** \n\t");
+	else if(choice_menu=1)
+		printf("\n \t  ******************************  |MAIN MENU|  ***************************** \n\t");
+	for(int i=0;i<80;i++){
+		printf("-");
+	}
+	printf("\n\n\n");
+	printf("\t\t\t         *Please select your choice*");
+	printf("\n\n\n");
+	printf("\n\t\t\t    -------------------------------------");
+	switch(choice_menu){
+		case 0:
+			printf("\n\t\t\t    | PRESS 1 -> Change Base Tariff     |");
+			break;
+		case 1:
+			printf("\n\t\t\t    | PRESS 1 -> Input Customer Data    |");
+			break;
+		default:
+			printf("ERROR 0.");
+			break;
+	}
+	printf("\n\t\t\t    -------------------------------------");
+	switch(choice_menu){
+		case 0:
+			printf("\n\t\t\t    | PRESS 2 -> Change Payment Deadline|");
+			break;
+		case 1:
+			printf("\n\t\t\t    | PRESS 2 -> Generate Bill          |");
+			break;
+		default:
+			printf("ERROR 0.");
+	    	break;          
+	}
+	printf("\n\t\t\t    -------------------------------------");
+	printf("\n\t\t\t    | PRESS 3 -> Return to Home Screen  |");
+	printf("\n\t\t\t    -------------------------------------");
+	printf("\n\t\t\t    | PRESS 4 -> Exit                   |");
+	printf("\n\t\t\t    -------------------------------------\n");
+	printf("\n\n\n\n\n\t");
+	for(int i=0;i<80;i++){
+	    printf("-");
+	}
+	time(&t);
+	printf("\n\t\t\tCurrent date and time : %s",ctime(&t));
+	printf("\t");
+	for(int i=0;i<80;i++){
+	    printf("-");
+	}
+	printf("\n");
+	char choice = getch();
+	return choice;
+}
+
 int main(int argc,char **argv)
 {   
     char choice,ch;
 	char username[20],password[20];
     int i,width=99,height=30;
 	int pw_count=0,login_flag=0,admin_exit=0;
+	int choice_admin=0,choice_main=0;
     time_t t;
 	time(&t);
 	SetConsoleTitle("Electricity Bill Generator");
@@ -64,7 +126,8 @@ int main(int argc,char **argv)
 		printf("\n\t\t    Press 'A' For ADMIN Login.      Press ANYKEY For MAIN MENU.\n");
 	ch = getch();
 	if(!(ch=='a'||ch=='A')||pw_count>2)
-		goto MainMenu;
+
+		goto Menu;
 	Admin:
 	if(login_flag)
 		goto AdminMenu;
@@ -73,7 +136,7 @@ int main(int argc,char **argv)
 	for(i=0;i<80;i++){		
 	    printf("-");
 	}
-	printf("\n \t   *****************************  |ADMIN LOGIN| ***************************** \n\t");
+	printf("\n \t  *****************************  |ADMIN LOGIN| ***************************** \n\t");
 	for(i=0;i<80;i++){
 		printf("-");
 	}
@@ -115,42 +178,10 @@ int main(int argc,char **argv)
     }
     password[i] = '\0';
 	if(!strcmp(username,"ADMIN")&&!strcmp(password,"CP020")){
-		do{	
+		do{
 			login_flag=1;
 			AdminMenu:
-			system("cls");
-			printf("\n\t");    
-			for(i=0;i<80;i++){		
-			    printf("-");
-			}
-			printf("\n \t  ****************************  |ADMIN OPTIONS|  *************************** \n\t");
-			for(i=0;i<80;i++){
-				printf("-");
-			}
-			printf("\n\n\n");
-			printf("\t\t\t         *Please select your choice*");
-			printf("\n\n\n");
-			printf("\n\t\t\t   ---------------------------------------");
-			printf("\n\t\t\t   |  PRESS 1 -> Change Base Tariff      |");
-			printf("\n\t\t\t   ---------------------------------------");
-			printf("\n\t\t\t   |  PRESS 2 -> Change Payment Deadline |");
-			printf("\n\t\t\t   ---------------------------------------");
-			printf("\n\t\t\t   |  PRESS 3 -> Return to Home Screen   |");
-			printf("\n\t\t\t   ---------------------------------------");
-			printf("\n\t\t\t   |  PRESS 4 -> Exit                    |");
-			printf("\n\t\t\t   ---------------------------------------\n");
-			printf("\n\n\n\n\n\t");
-			for(i=0;i<80;i++){
-			    printf("-");
-			}
-			time(&t);
-			printf("\n\t\t\tCurrent date and time : %s",ctime(&t));
-			printf("\t");
-			for(i=0;i<80;i++){
-			    printf("-");
-			}
-			printf("\n");
-			choice = getch();
+			choice = menu(0);
 			switch(choice){
 				case '1':
 
@@ -196,41 +227,10 @@ int main(int argc,char **argv)
 		getch();
 		goto Home;
 	}		
-	while(1)     
-	{	MainMenu:
-		system("cls"); 
-		printf("\n\t");    
-		for(i=0;i<80;i++){		
-            printf("-");
-        }
-		printf("\n \t  ******************************  |MAIN MENU|  ***************************** \n\t");
-		for(i=0;i<80;i++){
-	    	printf("-");
-        }
-		printf("\n\n\n");
-		printf("\t\t\t         *Please select your choice*");
-		printf("\n\n\n");
-		printf("\n\t\t\t    -------------------------------------");
-		printf("\n\t\t\t    | PRESS 1 -> Input Customer Data    |");
-		printf("\n\t\t\t    -------------------------------------");
-		printf("\n\t\t\t    | PRESS 2 -> Generate Bill          |");
-		printf("\n\t\t\t    -------------------------------------");
-		printf("\n\t\t\t    | PRESS 3 -> Return to Home Screen  |");
-		printf("\n\t\t\t    -------------------------------------");
-		printf("\n\t\t\t    | PRESS 4 -> Exit                   |");
-		printf("\n\t\t\t    -------------------------------------\n");
-		printf("\n\n\n\n\n\t");
-		for(i=0;i<80;i++){
-		    printf("-");
-        }
-		time(&t);
-	    printf("\n\t\t\tCurrent date and time : %s",ctime(&t));
-        printf("\t");
-		for(i=0;i<80;i++){
-		    printf("-");
-        }
-		printf("\n");
-        choice = getch();
+	do     
+	{	
+		Menu:
+        choice = menu(1);
         switch(choice) // SWITCH STATEMENT
 		{	
 			case '1':
@@ -262,7 +262,7 @@ int main(int argc,char **argv)
 						admin_exit=0;
 						goto Admin;
 					}
-				goto MainMenu;
+				goto Menu;
 				}
 				else if(ch=='Y'||ch=='y')
 				exit(0);
@@ -273,6 +273,6 @@ int main(int argc,char **argv)
 				getch();
 				break;
 		}
-	}
+	}while(1);
     return 0;
 }
