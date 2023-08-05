@@ -7,7 +7,7 @@
 // Function to read data from the file and store it in a linked list
 void readFileData(Info** head, char* filename) {
     int BUFSIZE = 1024;
-    char* buffer[BUFSIZE];
+    char buffer[BUFSIZE];
     char enter;
 
     FILE* file = fopen(filename, "r");
@@ -30,6 +30,7 @@ void readFileData(Info** head, char* filename) {
             // char ID[10]="";
             // int month=0;
             // int unit=0;
+            
             switch(fieldCount){
                 case 0:
                     strcpy(name,buffer);
@@ -47,15 +48,22 @@ void readFileData(Info** head, char* filename) {
                     printf("FILE READING ERROR.");
                     return;
             }   
-            fieldCount++;
-            fieldCount%4;
         
-         if (enter == '\r') {
-            fieldCount=0;   
-         }
+        fieldCount++;
+            
+        fieldCount=fieldCount%4;
         
-    }
-    append(head, name, ID, month, unit, 0);   
+        if(fieldCount==3){
+            append(head, name, ID, month, unit, 0);
+            char name[30]="";
+            char ID[10]="";
+            int month=0;
+            int unit=0;
+            int fieldCount=0;
+        }     
+
+    }  
+    
     fclose(file);
 }
 
