@@ -53,11 +53,16 @@ int main(int argc,char **argv)
 			choice = menu(0);
 			switch(choice){
 				case '1':
-
+					system("cls");
+				//	changeBaseTariff();
+					printf("COMING SOON."); //remove once function is complete.
+					getch(); //remove once function is complete.
+					break;
 				case '2':
 					system("cls");
-					printf("cumming soon. ;)");
-					getch();
+				//  chaneDeadline();
+					printf("COMING SOON."); //remove once function is complete.
+					getch(); //remove once function is complete.
 					break;
 				case '3': 
 					goto Home;
@@ -103,11 +108,16 @@ int main(int argc,char **argv)
         switch(choice) // SWITCH STATEMENT
 		{	
 			case '1':
-			    
+			    system("cls");
+			//  inputMenu();
+				printf("COMING SOON."); //remove once function is complete.
+				getch(); //remove once function is complete.
+				break;
 			case '2':
 				system("cls");
-				printf("cumming soon. ;)");
-				getch();
+			//  outputMenu();
+				printf("COMING SOON."); //remove once function is complete.
+				getch(); //remove once function is complete.			
 				break;
 			case '3':
 			    goto Home;
