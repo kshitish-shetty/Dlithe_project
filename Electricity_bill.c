@@ -9,7 +9,7 @@
 #include"fileinput.h"//library containing functions for taking from file and storing in linked lists.
 
 int main(int argc,char **argv)
-{   
+{
     char choice,ch; // used to recieve user choices, "choice" for menus and "ch" for traversing interface.
 	char username[20],password[20]; //strings to store user input at login menu.
 	int i; // iteration variable.
@@ -18,19 +18,19 @@ int main(int argc,char **argv)
 	int choice_admin=0,choice_main=0,login_flag=0,admin_exit=0;// flags to keep track of user choices.
     time_t t; // stores time data.
 	float base = 0;
-	int deadline = 
-	time(&t); 
-	SetConsoleTitle("Electricity Bill Generator"); 
+	int deadline = 0;
+	time(&t);
+	SetConsoleTitle("Electricity Bill Generator");
     setConsoleSize(width,height);
     Home:
-	choice = home(pw_count);  // displays homepage and receives user choice.                           
+	choice = home(pw_count); // displays homepage and receives user choice.                           
 	if(!(choice=='a'||choice=='A')||pw_count>2) // removes access to admin menu after 3 incorrect login attempts.
 		goto MainMenu;
 	Admin:
 	if(login_flag) // checks if user is already logged in.
 		goto AdminMenu; // if true skips login screen.
-	system("cls");   
-	printf("\n\t");  
+	system("cls");  
+	printf("\n\t");
 	for(i=0;i<80;i++){		// ADMIN LOGIN SCREEN
 	    printf("-");
 	}
@@ -57,7 +57,7 @@ int main(int argc,char **argv)
 			switch(choice){
 				case '1':
 					system("cls");
-				//	changeBaseTariff(base); 
+				//	changeBaseTariff(base);
 					printf("COMING SOON."); //remove once function is complete.
 					getch(); //remove once function is complete.
 					break;
@@ -67,7 +67,7 @@ int main(int argc,char **argv)
 					printf("COMING SOON."); //remove once function is complete.
 					getch(); //remove once function is complete.
 					break;
-				case '3': 
+				case '3':
 					goto Home;
 				case '4':
 					admin_exit=1; 
@@ -83,7 +83,7 @@ int main(int argc,char **argv)
 	}
 	printf("\n\n\n\t\t\t\t    INCORRECT LOGIN CREDENTIALS");
 	printf("\n\n\n\t\t\t\t  %d Attempts Remain Before Lockout\n\n\t", 2-pw_count);
-	pw_count++;			
+	pw_count++;
 	for(i=0;i<80;i++)
 		printf("-");
 	time(&t);
@@ -104,12 +104,12 @@ int main(int argc,char **argv)
 		getch();
 		goto Home;
 	}		
-	do     
-	{	
+	do
+	{
 		MainMenu:
         choice = menu(1);
         switch(choice) // SWITCH STATEMENT
-		{	
+		{
 			case '1':
 			    system("cls");
 			//  inputMenu();
