@@ -20,7 +20,7 @@ int main(int argc,char **argv)
 	SetConsoleTitle("Electricity Bill Generator"); // 
     setConsoleSize(width,height);
     Home:
-	choice = home(pw_count);                             ;
+	choice = home(pw_count);                             
 	if(!(choice=='a'||choice=='A')||pw_count>2)
 		goto MainMenu;
 	Admin:
