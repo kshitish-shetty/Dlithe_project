@@ -13,27 +13,6 @@ void setConsoleSize(int width, int height) {
     SetConsoleScreenBufferSize(hConsole, bufferSize);
 }
 
-void getString(char* arr,int hide){
-	 char ch;
-	 int i=0;
-	 while ((ch = getch()) != 13) {
- 	    if (ch == 8) { // Backspace ASCII value
- 	        if (i > 0) {
- 	            // Move cursor back, overwrite the character with a space, and move cursor back again
- 	            printf("\b \b");
- 	            i--;
- 	        }
- 	    } else if (i < 20) {
- 	        arr[i++] = ch;
-			if(hide)
- 	        	printf("*");
-			else	
-				printf("%c",ch);
- 	    }
- 	}
- 	arr[i] = '\0';
-}
-
 char home(int pw_count){
 	time_t t;
 	system("cls");   // FOR CLEARING SCREEN

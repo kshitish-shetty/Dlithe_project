@@ -4,8 +4,9 @@
 #include<time.h>
 #include <windows.h> // All necessary Inbuilt libraries.
 
-#include"struct.h" // library containing Struture and functions for creating and managing linked lists.
-#include"interface.h"// library containing functions bundling all the print statements for the user interface.
+#include"struct.h" // library containing Structure and functions for handling linked lists.
+#include"interface.h"// library containing functions for the user interface.
+#include"fileinput.h"//library containing functions for taking from file and storing in linked lists.
 
 int main(int argc,char **argv)
 {   
@@ -16,19 +17,21 @@ int main(int argc,char **argv)
 	int pw_count=0; // keeps track of wrong login attempts.
 	int choice_admin=0,choice_main=0,login_flag=0,admin_exit=0;// flags to keep track of user choices.
     time_t t; // stores time data.
-	time(&t);
-	SetConsoleTitle("Electricity Bill Generator"); // 
+	float base = 0;
+	int deadline = 
+	time(&t); 
+	SetConsoleTitle("Electricity Bill Generator"); 
     setConsoleSize(width,height);
     Home:
-	choice = home(pw_count);                             
-	if(!(choice=='a'||choice=='A')||pw_count>2)
+	choice = home(pw_count);  // displays homepage and receives user choice.                           
+	if(!(choice=='a'||choice=='A')||pw_count>2) // removes access to admin menu after 3 incorrect login attempts.
 		goto MainMenu;
 	Admin:
-	if(login_flag)
-		goto AdminMenu;
+	if(login_flag) // checks if user is already logged in.
+		goto AdminMenu; // if true skips login screen.
 	system("cls");   
 	printf("\n\t");  
-	for(i=0;i<80;i++){		
+	for(i=0;i<80;i++){		// ADMIN LOGIN SCREEN
 	    printf("-");
 	}
 	printf("\n \t  *****************************  |ADMIN LOGIN| ***************************** \n\t");
@@ -40,12 +43,12 @@ int main(int argc,char **argv)
 	printf("\n\t\t\t\t|         ENTER USERNAME         |");
 	printf("\n\t\t\t\t----------------------------------");
 	printf("\n\t\t\t\t\t    ");
-	getString(username,0);
+	getString(username,0); //user defined function to recieve username without hiding characters.
 	printf("\n\n\t\t\t\t-----------------------------------");
 	printf("\n\t\t\t\t|         ENTER PASSWORD          |");
 	printf("\n\t\t\t\t-----------------------------------");
 	printf("\n\t\t\t\t\t    ");
-	getString(password,1);
+	getString(password,1); //user defined function to recieve username while hiding characters.
 	if(!strcmp(username,"ADMIN")&&!strcmp(password,"CP020")){
 		do{
 			login_flag=1;
@@ -54,13 +57,13 @@ int main(int argc,char **argv)
 			switch(choice){
 				case '1':
 					system("cls");
-				//	changeBaseTariff();
+				//	changeBaseTariff(base); 
 					printf("COMING SOON."); //remove once function is complete.
 					getch(); //remove once function is complete.
 					break;
 				case '2':
 					system("cls");
-				//  chaneDeadline();
+				//  changeDeadline(deadline);
 					printf("COMING SOON."); //remove once function is complete.
 					getch(); //remove once function is complete.
 					break;
