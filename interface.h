@@ -4,7 +4,6 @@
 #include<windows.h>
 #include<time.h>
 
-
 void setConsoleSize(int width, int height) {
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     SMALL_RECT windowRect = { 0, 0, width - 1, height - 1 };
@@ -79,7 +78,7 @@ char exitPage(){
     system("cls");
     printf("\n\t -------------------------------------------------------------------------------\n");
     printf("\t|                                                                               |\n");
-    printf("\t|         OOOOOO     O     O        O        O       O    O  O    OOOOOO        |\n");
+    printf("\t|        OOOOOOO     O     O        O        O       O    O  O    OOOOOO        |\n");
     printf("\t|           O        O     O       O O       O O     O    O O     O             |\n");
     printf("\t|           O        OOOOOOO      O O O      O  O    O    OO      OOOOOO        |\n");
     printf("\t|           O        O     O     O     O     O   O   O    O O          O        |\n");
@@ -91,6 +90,7 @@ char exitPage(){
     char choice = getch();
     return choice;
 }
+
 char menu(int choice_menu){
 	time_t t;
 	system("cls"); 
@@ -112,25 +112,17 @@ char menu(int choice_menu){
 	switch(choice_menu){
 		case 0:
 			printf("\n\t\t\t    | PRESS 1 -> Change Base Tariff     |");
-			break;
-		case 1:
-			printf("\n\t\t\t    | PRESS 1 -> Input Customer Data    |");
-			break;
-		default:
-			printf("ERROR 0.");
-			break;
-	}
-	printf("\n\t\t\t    -------------------------------------");
-	switch(choice_menu){
-		case 0:
+			printf("\n\t\t\t    -------------------------------------");
 			printf("\n\t\t\t    | PRESS 2 -> Change Payment Deadline|");
 			break;
 		case 1:
+			printf("\n\t\t\t    | PRESS 1 -> Input Customer Data    |");
+			printf("\n\t\t\t    -------------------------------------");
 			printf("\n\t\t\t    | PRESS 2 -> Generate Bill          |");
 			break;
 		default:
-			printf("ERROR 0.");
-	    	break;          
+			printf("DISPLAY ERROR.");
+			break;
 	}
 	printf("\n\t\t\t    -------------------------------------");
 	printf("\n\t\t\t    | PRESS 3 -> Return to Home Screen  |");

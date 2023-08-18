@@ -10,8 +10,8 @@ typedef struct Info {
     int month;
     int  units;
     double amount;
-   struct Info *prev;
-   struct Info *next;
+    struct Info *prev;
+    struct Info *next;
 }Info;
 
 

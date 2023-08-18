@@ -2,28 +2,26 @@
 #include<conio.h>
 #include<stdlib.h>
 #include<time.h>
-#include <windows.h>
+#include <windows.h> // All necessary Inbuilt libraries.
 
-#define rate 0.59
-
-#include"struct.h"
-#include"interface.h"
+#include"struct.h" // library containing Struture and functions for creating and managing linked lists.
+#include"interface.h"// library containing functions bundling all the print statements for the user interface.
 
 int main(int argc,char **argv)
 {   
-    char choice,ch;
-	char username[20],password[20];
-    int i,width=99,height=30;
-	int pw_count=0,login_flag=0,admin_exit=0;
-	int choice_admin=0,choice_main=0;
-    time_t t;
+    char choice,ch; // used to recieve user choices, "choice" for menus and "ch" for traversing interface.
+	char username[20],password[20]; //strings to store user input at login menu.
+	int i; // iteration variable.
+    int width=99,height=30; // sets width and height of console window.
+	int pw_count=0; // keeps track of wrong login attempts.
+	int choice_admin=0,choice_main=0,login_flag=0,admin_exit=0;// flags to keep track of user choices.
+    time_t t; // stores time data.
 	time(&t);
-	SetConsoleTitle("Electricity Bill Generator");
+	SetConsoleTitle("Electricity Bill Generator"); // 
     setConsoleSize(width,height);
     Home:
 	choice = home(pw_count);                             ;
 	if(!(choice=='a'||choice=='A')||pw_count>2)
-
 		goto MainMenu;
 	Admin:
 	if(login_flag)

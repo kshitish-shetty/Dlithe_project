@@ -6,6 +6,7 @@
 
 // Function to read data from the file and store it in a linked list
 void readFileData(Info** head, char* filename) {
+    
     int BUFSIZE = 1024;
     char buffer[BUFSIZE];
     char enter;
