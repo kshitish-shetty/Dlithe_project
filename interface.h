@@ -13,6 +13,7 @@ void setConsoleSize(int width, int height) {
     SetConsoleScreenBufferSize(hConsole, bufferSize);
 }
 
+// function to print the header of a page with only input parameter being the input string.
 void header(char *title){
 	int len,i;
 	printf("\n\t");
@@ -36,7 +37,18 @@ void header(char *title){
 	}
 }
 
-void button(char *title,int size,int offset,int align){//align=0-->left align , align=1-->center align, align-->right align. 
+/* function to print an option in the menu, which I'll be calling button here.
+	title -> input string which will be printed inside the "button"
+	size -> total length of "button"(if size is 0, it will fit a box with a space on either side of the string)
+	offset -> the amount of blankspaces from the left side before creating the "button" 
+	align -> decides alignment of text in button
+				0 = left alignment
+				1 = center alignment
+				2 = right alignment
+	stacking -> flag which will indicate if there is another "button" below it, 
+				basically all "buttons" in menu will have this set as "1" except last one.
+*/
+void button(char *title,int size,int offset,int align,int stacking){
 	int len,i;
 	len = strlen(title);
 	if(size<len+4){size=len+4;}
@@ -58,22 +70,28 @@ void button(char *title,int size,int offset,int align){//align=0-->left align , 
 		case 0:
 			break;
 		case 1:	
-			i=0;
-			if(len%2==0){i--;} // for even titles prints on extra star.
-			for(;i<=(size-(len)/2);i++){ . 
+			for(i=0;i<(size-(len+4))/2;i++){
 				printf(" ");
 			}
 			break;
 		case 2:
-
+			for(i=0;i<(size-(len+4));i++){
+				printf(" ");
+			}
 			break;
 	}
 	printf("%s",title);
+	
 	switch(align){
 		case 0:
+			for(i=0;i<(size-(len+4));i++){
+				printf(" ");
+			}	
 			break;
 		case 1:
-			for(i=0;i<(size-(len+2)/2);i++){
+			i=0;
+			if(len%2==0){i--;} // for even titles prints an extra space.
+			for(;i<(size-(len+4))/2;i++){
 				printf(" ");
 			}
 			break;
@@ -82,6 +100,8 @@ void button(char *title,int size,int offset,int align){//align=0-->left align , 
 	}
 	
 	printf(" |\n");
+
+	if(stacking){return;}
 	
 	for(i=0;i<offset;i++)
 		printf(" ");
@@ -154,30 +174,24 @@ char menu(int choice_menu){
 	else if(choice_menu=1)
 		header("MAIN MENU");
 	printf("\n\n\n");
-	printf("\t\t\t         *Please select your choice*");
+	printf("\t\t\t           *Please select your choice*");
 	printf("\n\n\n");
-	printf("\n\t\t\t    -------------------------------------");
 	switch(choice_menu){
 		case 0:
-			printf("\n\t\t\t    | PRESS 1 -> Change Base Tariff     |");
-			printf("\n\t\t\t    -------------------------------------");
-			printf("\n\t\t\t    | PRESS 2 -> Change Payment Deadline|");
+			button("PRESS 1 -> Change Base Tariff",39,29,0,1);
+			button("PRESS 2 -> Change Payment Deadline",39,29,0,1);
 			break;
 		case 1:
-			printf("\n\t\t\t    | PRESS 1 -> Input Customer Data    |");
-			printf("\n\t\t\t    -------------------------------------");
-			printf("\n\t\t\t    | PRESS 2 -> Generate Bill          |");
+			button("PRESS 1 -> Input Customer Data",39,29,0,1);
+			button("PRESS 2 -> Generate Bill",39,29,0,1);
 			break;
 		default:
 			printf("DISPLAY ERROR.");
 			break;
 	}
-	printf("\n\t\t\t    -------------------------------------");
-	printf("\n\t\t\t    | PRESS 3 -> Return to Home Screen  |");
-	printf("\n\t\t\t    -------------------------------------");
-	printf("\n\t\t\t    | PRESS 4 -> Exit                   |");
-	printf("\n\t\t\t    -------------------------------------\n");
-	printf("\n\n\n\n\n\t");
+	button("PRESS 3 -> Return to Home Screen",39,29,0,1);
+	button("PRESS 4 -> Exit",39,29,0,0);
+	printf("\n\n\n\n\n\n\t");
 	for(int i=0;i<80;i++){
 	    printf("-");
 	}

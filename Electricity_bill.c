@@ -31,15 +31,12 @@ int main(int argc,char **argv)
 		goto AdminMenu; // if true skips login screen.
 	system("cls");  
 	header("ADMIN LOGIN");
-	printf("\n\n\n");
-	printf("\n\t\t\t\t----------------------------------");
-	printf("\n\t\t\t\t|         ENTER USERNAME         |");
-	printf("\n\t\t\t\t----------------------------------");
+	printf("\n\n\n\n");
+	button("ENTER USERNAME",39,29,1,0);
 	printf("\n\t\t\t\t\t    ");
 	getString(username,0); //user defined function to recieve username without hiding characters.
-	printf("\n\n\t\t\t\t-----------------------------------");
-	printf("\n\t\t\t\t|         ENTER PASSWORD          |");
-	printf("\n\t\t\t\t-----------------------------------");
+	printf("\n");
+	button("ENTER PASSWORD",39,29,0,0);
 	printf("\n\t\t\t\t\t    ");
 	getString(password,1); //user defined function to recieve username while hiding characters.
 	if(!strcmp(username,"ADMIN")&&!strcmp(password,"CP020")){
