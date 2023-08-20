@@ -38,6 +38,9 @@ void header(char *title){
 }
 
 void footer(){
+	int i;
+	time_t t; // stores time data.
+	time(&t);
 	for(i=0;i<80;i++){
 		printf("-");
 	}	
@@ -59,6 +62,8 @@ void footer(){
 				2 = right alignment
 	stacking -> flag which will indicate if there is another "button" below it, 
 				basically all "buttons" in menu will have this set as "1" except last one.
+
+	size = 39 and offset = 29 centers the button and has been used as a standard.
 */
 void button(char *title,int size,int offset,int align,int stacking){
 	int len,i;

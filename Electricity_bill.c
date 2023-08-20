@@ -1,7 +1,6 @@
 #include<stdio.h>
 #include<conio.h>
 #include<stdlib.h>
-#include<time.h>
 #include <windows.h> // All necessary Inbuilt libraries.
 
 #include"struct.h" // library containing Structure and functions for handling linked lists.
@@ -16,10 +15,8 @@ int main(int argc,char **argv)
     int width=99,height=30; // sets width and height of console window.
 	int pw_count=0; // keeps track of wrong login attempts.
 	int choice_admin=0,choice_main=0,login_flag=0,admin_exit=0;// flags to keep track of user choices.
-    time_t t; // stores time data.
 	float base = 0;
 	int deadline = 0;
-	time(&t);
 	SetConsoleTitle("Electricity Bill Generator");
     setConsoleSize(width,height);
     Home:
