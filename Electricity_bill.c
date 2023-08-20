@@ -3,9 +3,11 @@
 #include<stdlib.h>
 #include <windows.h> // All necessary Inbuilt libraries.
 
-#include"struct.h" // library containing Structure and functions for handling linked lists.
-#include"interface.h"// library containing functions for the user interface.
-#include"fileinput.h"//library containing functions for taking from file and storing in linked lists.
+#include"struct.h" // Structure and functions for handling linked lists.
+#include"interface.h"// functions for the user interface.
+#include"fileinput.h"// functions for taking from file and storing in linked lists.
+#include"Adminfunc.h"// functions to carry out admin tasks.
+
 
 int main(int argc,char **argv)
 {
@@ -36,38 +38,37 @@ int main(int argc,char **argv)
 	button("ENTER PASSWORD",39,29,0,0);
 	printf("\n\t\t\t\t\t    ");
 	getString(password,1); //user defined function to recieve username while hiding characters.
-	if(!strcmp(username,"ADMIN")&&!strcmp(password,"CP020")){
-		do{
-			login_flag=1;
-			AdminMenu:
-			choice = menu(0);
-			switch(choice){
-				case '1':
-					system("cls");
-				//	changeBaseTariff(base);
-					printf("COMING SOON."); //remove once function is complete.
-					getch(); //remove once function is complete.
-					break;
-				case '2':
-					system("cls");
-				//  changeDeadline(deadline);
-					printf("COMING SOON."); //remove once function is complete.
-					getch(); //remove once function is complete.
-					break;
-				case '3':
-					goto Home;
-				case '4':
-					admin_exit=1; 
-					goto Exit;
-				default:
-					system("cls");
-					printf("\n\n\n\n\t\t\t\t\tInvalid Input");
-					printf("\n\t\t\t\t  Press any key to continue");
-					getch();
-					break;
-			}
-		}while(1);
-	}
+	if(strcmp(username,"ADMIN")||strcmp(password,"CP020")){
+		printf("\n\t\t  Maximum Number Of Attempts Reached, Press ANYKEY For Home.\n");
+		getch();
+		goto Home;
+	}	
+	do{
+		login_flag=1;
+		AdminMenu:
+		choice = menu(0);
+		switch(choice){
+			case '1':
+				system("cls");
+				base = changeBaseTariff(base);
+				break;
+			case '2':
+				system("cls");
+			    deadline = changeDeadline(deadline);
+				break;
+			case '3':
+				goto Home;
+			case '4':
+				admin_exit=1; 
+				goto Exit;
+			default:
+				system("cls");
+				printf("\n\n\n\n\t\t\t\t\tInvalid Input");
+	    		printf("\n\t\t\t\t  Press any key to continue");
+				getch();
+				break;
+		}
+	}while(1);
 	printf("\n\n\n\t\t\t\t    INCORRECT LOGIN CREDENTIALS");
 	printf("\n\n\n\t\t\t\t  %d Attempts Remain Before Lockout\n\n\t", 2-pw_count);
 	pw_count++;
@@ -79,11 +80,6 @@ int main(int argc,char **argv)
 			goto Home;
 		else
 			goto Admin;
-	}
-	else{
-		printf("\n\t\t  Maximum Number Of Attempts Reached, Press ANYKEY For Home.\n");
-		getch();
-		goto Home;
 	}		
 	do
 	{
@@ -92,17 +88,9 @@ int main(int argc,char **argv)
         switch(choice) // SWITCH STATEMENT
 		{
 			case '1':
-			    system("cls");
-			//  inputMenu();
-				printf("COMING SOON."); //remove once function is complete.
-				getch(); //remove once function is complete.
-				break;
+			    goto inputmenu;
 			case '2':
-				system("cls");
-			//  outputMenu();
-				printf("COMING SOON."); //remove once function is complete.
-				getch(); //remove once function is complete.			
-				break;
+			    goto outputmenu;
 			case '3':
 			    goto Home;
 			case '4':
@@ -124,6 +112,16 @@ int main(int argc,char **argv)
 				getch();
 				break;
 		}
+	}while(1);
+	do{
+		inputmenu:
+		choice = menu(2);
+
+	}while(1);
+	do{
+		outputmenu:
+		choice = menu(3);
+
 	}while(1);
 	return 0;
 }

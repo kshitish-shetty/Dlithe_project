@@ -179,11 +179,16 @@ char exitPage(){
 
 char menu(int choice_menu){
 	time_t t;
+	char choice;
 	system("cls"); 
 	if(choice_menu==0)
 		header("ADMIN OPTIONS");
-	else if(choice_menu=1)
+	if(choice_menu==1)
 		header("MAIN MENU");
+	if(choice_menu==2)
+		header("INPUT OPTIONS");
+	if(choice_menu==3)
+		header("OUTPUT OPTIONS");
 	printf("\n\n\n");
 	printf("\t\t\t           *Please select your choice*");
 	printf("\n\n\n");
@@ -191,20 +196,26 @@ char menu(int choice_menu){
 		case 0:
 			button("PRESS 1 -> Change Base Tariff",39,29,0,1);
 			button("PRESS 2 -> Change Payment Deadline",39,29,0,1);
+			button("PRESS 3 -> Return to Home Screen",39,29,0,1);
+			button("PRESS 4 -> Exit",39,29,0,0);
 			break;
 		case 1:
 			button("PRESS 1 -> Input Customer Data",39,29,0,1);
 			button("PRESS 2 -> Generate Bill",39,29,0,1);
+			button("PRESS 3 -> Return to Home Screen",39,29,0,1);
+			button("PRESS 4 -> Exit",39,29,0,0);
+			break;
+		case 2:
+			break;
+		case 3:
 			break;
 		default:
 			printf("DISPLAY ERROR.");
 			break;
 	}
-	button("PRESS 3 -> Return to Home Screen",39,29,0,1);
-	button("PRESS 4 -> Exit",39,29,0,0);
 	printf("\n\n\n\n\n\n\t");
 	footer();
 	printf("\n");
-	char choice = getch();
+    choice = getch();
 	return choice;
 }
