@@ -37,6 +37,18 @@ void header(char *title){
 	}
 }
 
+void footer(){
+	for(i=0;i<80;i++){
+		printf("-");
+	}	
+	time(&t);
+	printf("\n\t\t\tCurrent date and time : %s",ctime(&t));
+	printf("\t");
+	for(i=0;i<80;i++){
+		printf("-");
+	}
+}	
+
 /* function to print an option in the menu, which I'll be calling button here.
 	title -> input string which will be printed inside the "button"
 	size -> total length of "button"(if size is 0, it will fit a box with a space on either side of the string)
@@ -133,13 +145,7 @@ char home(int pw_count){
 	printf("\t\t\t*                                               *\n");
 	printf("\t\t\t*         Brought To You By Team CP020          *\n");
 	printf("\t\t\t*************************************************\n\n\t");
-	for(int i=0;i<80;i++)
-		printf("-");
-	time(&t);
-	printf("\n\t\t\tCurrent date and time : %s",ctime(&t));
-	printf("\t");
-	for(int i=0;i<80;i++)
-		printf("-");
+	footer();
 	if(pw_count>2){
 		printf("\n\t\t                 Press ANYKEY For MAIN MENU.\n");	
 	}
@@ -192,15 +198,7 @@ char menu(int choice_menu){
 	button("PRESS 3 -> Return to Home Screen",39,29,0,1);
 	button("PRESS 4 -> Exit",39,29,0,0);
 	printf("\n\n\n\n\n\n\t");
-	for(int i=0;i<80;i++){
-	    printf("-");
-	}
-	time(&t);
-	printf("\n\t\t\tCurrent date and time : %s",ctime(&t));
-	printf("\t");
-	for(int i=0;i<80;i++){
-	    printf("-");
-	}
+	footer();
 	printf("\n");
 	char choice = getch();
 	return choice;

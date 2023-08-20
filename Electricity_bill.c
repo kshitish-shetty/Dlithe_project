@@ -74,13 +74,7 @@ int main(int argc,char **argv)
 	printf("\n\n\n\t\t\t\t    INCORRECT LOGIN CREDENTIALS");
 	printf("\n\n\n\t\t\t\t  %d Attempts Remain Before Lockout\n\n\t", 2-pw_count);
 	pw_count++;
-	for(i=0;i<80;i++)
-		printf("-");
-	time(&t);
-	printf("\n\t\t\tCurrent date and time : %s",ctime(&t));
-	printf("\t");
-	for(i=0;i<80;i++)
-    	printf("-");
+	footer();
 	if(pw_count<3){
 		printf("\n\t\t    Press 'H' For Home.             Press ANYKEY For RETRY.\n");
 		ch = getch();
