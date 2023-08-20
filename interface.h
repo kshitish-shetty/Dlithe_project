@@ -13,6 +13,33 @@ void setConsoleSize(int width, int height) {
     SetConsoleScreenBufferSize(hConsole, bufferSize);
 }
 
+void header(char *title){
+	int len,i;
+	printf("\n\t");
+	for(i=0;i<80;i++){		
+    	printf("-");
+	}
+	len = strlen(title);
+	printf("\n \t  ");
+	i=0;
+	if(len%2==0){i--;} // for even titles prints on extra star.
+	for(;i<=(37-(len+6)/2);i++){ // 74 total space. 
+		printf("*");
+	}
+	printf("  |%s|  ",title);
+	for(i=0;i<(37-(len+6)/2);i++){
+		printf("*");
+	}
+	printf(" \t\n\t");
+	for(i=0;i<80;i++){
+		printf("-");
+	}
+}
+
+void button(char *title){
+	
+}
+
 char home(int pw_count){
 	time_t t;
 	system("cls");   // FOR CLEARING SCREEN
@@ -73,17 +100,10 @@ char exitPage(){
 char menu(int choice_menu){
 	time_t t;
 	system("cls"); 
-	printf("\n\t");    
-	for(int i=0;i<80;i++){		
-	    printf("-");
-	}
 	if(choice_menu==0)
-		printf("\n \t  ****************************  |ADMIN OPTIONS|  *************************** \n\t");
+		header("ADMIN OPTIONS");
 	else if(choice_menu=1)
-		printf("\n \t  ******************************  |MAIN MENU|  ***************************** \n\t");
-	for(int i=0;i<80;i++){
-		printf("-");
-	}
+		header("MAIN MENU");
 	printf("\n\n\n");
 	printf("\t\t\t         *Please select your choice*");
 	printf("\n\n\n");

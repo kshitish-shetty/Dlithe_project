@@ -30,14 +30,7 @@ int main(int argc,char **argv)
 	if(login_flag) // checks if user is already logged in.
 		goto AdminMenu; // if true skips login screen.
 	system("cls");  
-	printf("\n\t");
-	for(i=0;i<80;i++){		// ADMIN LOGIN SCREEN
-	    printf("-");
-	}
-	printf("\n \t  *****************************  |ADMIN LOGIN| ***************************** \n\t");
-	for(i=0;i<80;i++){
-		printf("-");
-	}
+	header("ADMIN LOGIN");
 	printf("\n\n\n");
 	printf("\n\t\t\t\t----------------------------------");
 	printf("\n\t\t\t\t|         ENTER USERNAME         |");
