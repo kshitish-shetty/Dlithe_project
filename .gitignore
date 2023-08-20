@@ -1,4 +1,5 @@
-
+*.rc
+*.ico
 *.json
 printTheformat.c
 reff_mage-for_project_output.jpeg
