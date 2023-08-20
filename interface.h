@@ -36,8 +36,57 @@ void header(char *title){
 	}
 }
 
-void button(char *title){
+void button(char *title,int size,int offset,int align){//align=0-->left align , align=1-->center align, align-->right align. 
+	int len,i;
+	len = strlen(title);
+	if(size<len+4){size=len+4;}
 	
+	for(i=0;i<offset;i++){
+		printf(" ");
+	}
+	for(i=0;i<size;i++){
+		printf("-");
+	}
+	printf("\n");
+	
+	for(i=0;i<offset;i++){
+		printf(" ");
+	}
+	printf("| ");
+
+	switch(align){
+		case 0:
+			break;
+		case 1:	
+			i=0;
+			if(len%2==0){i--;} // for even titles prints on extra star.
+			for(;i<=(size-(len)/2);i++){ . 
+				printf(" ");
+			}
+			break;
+		case 2:
+
+			break;
+	}
+	printf("%s",title);
+	switch(align){
+		case 0:
+			break;
+		case 1:
+			for(i=0;i<(size-(len+2)/2);i++){
+				printf(" ");
+			}
+			break;
+		case 2:
+			break;
+	}
+	
+	printf(" |\n");
+	
+	for(i=0;i<offset;i++)
+		printf(" ");
+	for(i=0;i<size;i++)
+		printf("-");
 }
 
 char home(int pw_count){
