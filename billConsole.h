@@ -20,4 +20,7 @@ void display_bill(){
     footer();
 } 
 
-
+// Function to search and print a bill of a particular ID
+void display_billByid(){
+    
+}
