@@ -4,6 +4,9 @@
 
 // Function to search and print a bill of a particular ID using binary search
 void display_billByid(Info bill[], int max, const char* required_Id){
+    printf("Enter Customer ID to search: ");
+    scanf("%s", required_Id);    //getting ID from the user whose details are to be displayed
+
     int low = 0;
     int high = max - 1;
     int found = 0;  // Initialize a flag to track whether the ID was found.
@@ -25,10 +28,10 @@ void display_billByid(Info bill[], int max, const char* required_Id){
                 printf("\n\t\tTotal Units. Used      : %d",bill[mid].units); // Accessing the struct Total Units. member
                 printf("\n\t\tEnergy Charges.        : %d unit",charge); // Accessing the struct Energy Charges. member
 
-                printf("\n\t\tYour Electricity BILL  : Rs. %.2lf \n\n\n",total); // The struct Total Amount calculated should be added
+                printf("\n\t\tYour Electricity BILL  : Rs. %.2lf \n\n\n",TOTAL); // The struct Total Amount calculated should be added
 
     
-                printf("\t\tNOTE:DUE IS 30 DAYS FROM TODAY\n\t\t\tBILL MUST BE PAID WITHIN THE DUE.\n\t\t\tELSE YOU MAY BE CHARGED EXTRA.\n\n\n\n");
+                printf("\t\tNOTE:DUE IS 30 DAYS FROM TODAY\n\t\t\tBILL MUST BE PAID WITHIN THE DUE.\n\t\t\tELSE YOU MAY BE CHARGED EXTRA.\n\n\n\n\t");
                 footer();
             
             } 
