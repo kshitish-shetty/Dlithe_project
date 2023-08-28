@@ -48,3 +48,25 @@ void display_billByid(Info bill[], int max, const char* required_Id){
         printf("\n\n\t\t\t\t\t***ERROR***\n\t\t\t\t  Customer ID '%s' not found.\n", required_Id);
     }
 }
+
+// Function to display all the bills
+void display_allBills(Info bill[], int max) {
+    printf("Bills of all the users:\n");
+    int i = 0;  // Initialize the loop counter.
+    header("Electricity Bill");
+    // Use a while loop to iterate through the array
+    while (i < max) {
+        printf("\n\n\n\t\tCustomer Name          : %s",bill[i].name); // Accessing the struct name member
+        printf("\n\t\tCustomer ID            : %s", bill[i].ID ); // Accesing the struct ID member 
+        printf("\n\t\tMonth                  : %d",bill[i].month); //Accessing the struct Month member
+        printf("\n\t\tPrevious Meter Reading : %d"pmr); // Accessing the struct PMR member
+        printf("\n\t\tCurrent Meter Reading  : %d"cmr); // Accessing the struct CMR member
+        printf("\n\t\tTotal Units. Used      : %d",bill[i].units); // Accessing the struct Total Units. member
+        printf("\n\t\tEnergy Charges.        : %d unit",charge); // Accessing the struct Energy Charges. member
+        printf("\n\t\tYour Electricity BILL  : Rs. %.2lf \n\n\n",TOTAL); // The struct Total Amount calculated should be added
+        printf("\t    --------------------------------------------------------\n");
+        i++;  // Increment the loop counter to move to the next bill.
+    }
+    printf("\t");
+    footer();
+}
