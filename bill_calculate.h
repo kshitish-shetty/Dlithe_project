@@ -1,21 +1,29 @@
 #include "struct.h"  // Include necessary header file for Node and Info definitions
-#include "consoleinput.h"
 // Default rate per unit
-#define DEFAULT_RATE 0.59
 
 // Global variable to store the rate per unit
-float RATE = DEFAULT_RATE;
+float RATE = 0.59;
 
 // Calculate bill based on the given rate
-float calculate_bill(Node* node) {
-    int units_consumed = node->data.units;
+float calculate_bill(Info* user) {
+    int units_consumed = user->units;
     float total_bill = units_consumed * RATE;
-    return total_bill;
+    return(total_bill);
 }
+/*
+usage of the funcion:
+    Info* user;
+    user = (Info*) malloc(sizeof(Info));
+    user->units = 89;
+    user->amount = calculate_bill(user);
+    printf("amount  : %lf\n",user->amount); // use %.2lf [double]
+
+    update_rate(0.98);
+*/
+
 
 // Update the rate per unit using user input
-void update_rate() {
-    printf("Enter the new rate per unit: ");
-    scanf("%f", &RATE);
-    printf("Rate per unit updated to: %.2f\n", RATE);
+float update_rate(float newRate) {
+    RATE=newRate;
+    return(newRate);
 }
