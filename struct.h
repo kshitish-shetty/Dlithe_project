@@ -10,6 +10,8 @@ typedef struct Info {
     int month;
     int  units;
     double amount;
+    float pmr;
+    float cmr;
     struct Info *prev;
     struct Info *next;
 }Info;
