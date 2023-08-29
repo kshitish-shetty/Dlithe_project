@@ -32,27 +32,16 @@ void insertNode(Node** head, Info newData) {
 }
 
 // Function to generate a bill for a given customer node
-<<<<<<< Updated upstream
-void generateBill(Node* node) {
-    header("INPUT");
-    printf("\n\n\n\t\tCustomer Name  : %s\n\n\n", node->data.name);
-    printf("\n\n\n\t\tCustomer ID    : %s\n\n\n", node->data.ID);
-    printf("\n\n\n\t\tUnits Consumed : %d\n\n\n", node->data.units);
-    footer();
-}
-=======
-
 void generateBill(Node* node) {
     header("CP020 BILL GENERATOR");
-    printf("\n\t    ************ PLEASE ENTER FOLLOWING DETAILS ************\n");
-    printf("\n\n\n\t\tCustomer Name     : %s\n\n\n", node->data.name);
-    printf("\n\n\n\t\tCustomer ID       : %s\n\n\n", node->data.ID);
-    printf("\n\n\n\t\tUnits Consumed    : %d\n\n\n", node->data.units);
-    printf("\n\t    ********************************************************\n");
+    printf("\n\n\t    ************ PLEASE ENTER FOLLOWING DETAILS ************\n");
+    printf("\n\n\n\t\tCustomer Name     : %s", node->data.name);
+    printf("\n\n\n\n\t\tCustomer ID       : %s", node->data.ID);
+    printf("\n\n\n\n\t\tUnits Consumed    : %d", node->data.units);
+    printf("\n\n\t    ********************************************************\n");
     footer();
 }
 
->>>>>>> Stashed changes
     
    
 // Function to free memory used by the linked list
