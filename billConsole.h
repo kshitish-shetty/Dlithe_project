@@ -15,12 +15,12 @@ void display_billByid(Info* head, const char* required_ID) {
             printf("\n\t\tCustomer ID            : %s", current->ID ); // Accesing the struct ID member 
             printf("\n\t\tMonth                  : %d",current->month); //Accessing the struct Month member
 
-            printf("\n\t\tPrevious Meter Reading : %d"pmr); // Accessing the struct PMR member
-            printf("\n\t\tCurrent Meter Reading  : %d"cmr); // Accessing the struct CMR member
-            printf("\n\t\tTotal Units. Used      : %d",current->units); // Accessing the struct Total Units. member
-            printf("\n\t\tEnergy Charges.        : %d unit",charge); // Accessing the struct Energy Charges. member
+            printf("\n\t\tPrevious Meter Reading : %.2f",current->pmr); // Accessing the struct PMR member
+            printf("\n\t\tCurrent Meter Reading  : %.2f",current->cmr); // Accessing the struct CMR member
+            printf("\n\t\tTotal Units. Used      : %.2d",current->units); // Accessing the struct Total Units. member
+            printf("\n\t\tEnergy Charges.        : %.2lf unit",current->amount); // Accessing the struct Energy Charges. member
 
-            printf("\n\t\tYour Electricity BILL  : Rs. %.2lf \n\n\n",TOTAL); // The struct Total Amount calculated should be added
+            printf("\n\t\tYour Electricity BILL  : Rs. %.2lf \n\n\n",current->amount); // The struct Total Amount calculated should be added
 
     
             printf("\t\tNOTE:DUE IS 30 DAYS FROM TODAY\n\t\t\tBILL MUST BE PAID WITHIN THE DUE.\n\t\t\tELSE YOU MAY BE CHARGED EXTRA.\n\n\n\n\t");
@@ -44,7 +44,7 @@ void display_allBills(Info* head) {
     while (current != NULL) {
         printf("\n\n\n\t\tCustomer Name          : %s",current->name); // Accessing the struct name member
         printf("\n\t\tCustomer ID            : %s", current->ID ); // Accesing the struct ID member
-        printf("\n\t\tYour Electricity BILL  : Rs. %.2lf \n\n\n",TOTAL); // The struct Total Amount calculated should be added
+        printf("\n\t\tYour Electricity BILL  : Rs. %.2lf \n\n\n",current->amount); // The struct Total Amount calculated should be added
         printf("\t    --------------------------------------------------------\n");
         current = current->next;
     }
