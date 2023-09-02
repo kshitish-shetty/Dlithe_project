@@ -185,10 +185,6 @@ char menu(int choice_menu){
 		header("ADMIN OPTIONS");
 	if(choice_menu==1)
 		header("MAIN MENU");
-	if(choice_menu==2)
-		header("INPUT OPTIONS");
-	if(choice_menu==3)
-		header("OUTPUT OPTIONS");
 	printf("\n\n\n");
 	printf("\t\t\t           *Please select your choice*");
 	printf("\n\n\n");
@@ -204,10 +200,6 @@ char menu(int choice_menu){
 			button("PRESS 2 -> Generate Bill",39,29,0,1);
 			button("PRESS 3 -> Return to Home Screen",39,29,0,1);
 			button("PRESS 4 -> Exit",39,29,0,0);
-			break;
-		case 2:
-			break;
-		case 3:
 			break;
 		default:
 			printf("DISPLAY ERROR.");

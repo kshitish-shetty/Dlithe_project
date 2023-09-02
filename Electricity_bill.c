@@ -17,7 +17,7 @@ int main(int argc,char **argv)
     int width=99,height=30; // sets width and height of console window.
 	int pw_count=0; // keeps track of wrong login attempts.
 	int choice_admin=0,choice_main=0,login_flag=0,admin_exit=0;// flags to keep track of user choices.
-	float base = 0;
+	float base = 0.589;
 	int deadline = 0;
 	SetConsoleTitle("Electricity Bill Generator");
     setConsoleSize(width,height);
@@ -115,8 +115,15 @@ int main(int argc,char **argv)
 	}while(1);
 	do{
 		inputmenu:
-		choice = menu(2);
-
+		system("cls");
+		header("INPUT OPTIONS");
+		printf("\n\n\n");
+		if(choice=='N'||choice=='n'){
+			button("ENTER FROM FILE",0,29,1,1);
+			
+		}
+		button("ENTER MANUALLY",0,29,1,1);
+		
 	}while(1);
 	do{
 		outputmenu:
