@@ -88,9 +88,9 @@ int main(int argc,char **argv)
         switch(choice) // SWITCH STATEMENT
 		{
 			case '1':
-			    goto inputmenu;
+			    inputmenu();
 			case '2':
-			    goto outputmenu;
+			    outputmenu();
 			case '3':
 			    goto Home;
 			case '4':
@@ -113,22 +113,4 @@ int main(int argc,char **argv)
 				break;
 		}
 	}while(1);
-	do{
-		inputmenu:
-		system("cls");
-		header("INPUT OPTIONS");
-		printf("\n\n\n");
-		if(choice=='N'||choice=='n'){
-			button("ENTER FROM FILE",0,29,1,1);
-			
-		}
-		button("ENTER MANUALLY",0,29,1,1);
-		
-	}while(1);
-	do{
-		outputmenu:
-		choice = menu(3);
-
-	}while(1);
-	return 0;
 }
