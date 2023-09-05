@@ -4,7 +4,6 @@
 #include<windows.h>
 #include<time.h>
 
-
 void setConsoleSize(int width, int height) {
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     SMALL_RECT windowRect = { 0, 0, width - 1, height - 1 };
@@ -14,25 +13,117 @@ void setConsoleSize(int width, int height) {
     SetConsoleScreenBufferSize(hConsole, bufferSize);
 }
 
-void getString(char* arr,int hide){
-	 char ch;
-	 int i=0;
-	 while ((ch = getch()) != 13) {
- 	    if (ch == 8) { // Backspace ASCII value
- 	        if (i > 0) {
- 	            // Move cursor back, overwrite the character with a space, and move cursor back again
- 	            printf("\b \b");
- 	            i--;
- 	        }
- 	    } else if (i < 20) {
- 	        arr[i++] = ch;
-			if(hide)
- 	        	printf("*");
-			else	
-				printf("%c",ch);
- 	    }
- 	}
- 	arr[i] = '\0';
+// function to print the header of a page with only input parameter being the input string.
+void header(char *title){
+	int len,i;
+	printf("\n\t");
+	for(i=0;i<80;i++){		
+    	printf("-");
+	}
+	len = strlen(title);
+	printf("\n \t  ");
+	i=0;
+	if(len%2==0){i--;} // for even titles prints on extra star.
+	for(;i<=(37-(len+6)/2);i++){ // 74 total space. 
+		printf("*");
+	}
+	printf("  |%s|  ",title);
+	for(i=0;i<(37-(len+6)/2);i++){
+		printf("*");
+	}
+	printf(" \t\n\t");
+	for(i=0;i<80;i++){
+		printf("-");
+	}
+}
+
+void footer(){
+	int i;
+	time_t t; // stores time data.
+	time(&t);
+	for(i=0;i<80;i++){
+		printf("-");
+	}	
+	time(&t);
+	printf("\n\t\t\tCurrent date and time : %s",ctime(&t));
+	printf("\t");
+	for(i=0;i<80;i++){
+		printf("-");
+	}
+}	
+
+/* function to print an option in the menu, which I'll be calling button here.
+	title -> input string which will be printed inside the "button"
+	size -> total length of "button"(if size is 0, it will fit a box with a space on either side of the string)
+	offset -> the amount of blankspaces from the left side before creating the "button" 
+	align -> decides alignment of text in button
+				0 = left alignment
+				1 = center alignment
+				2 = right alignment
+	stacking -> flag which will indicate if there is another "button" below it, 
+				basically all "buttons" in menu will have this set as "1" except last one.
+
+	size = 39 and offset = 29 centers the button and has been used as a standard.
+*/
+void button(char *title,int size,int offset,int align,int stacking){
+	int len,i;
+	len = strlen(title);
+	if(size<len+4){size=len+4;}
+	
+	for(i=0;i<offset;i++){
+		printf(" ");
+	}
+	for(i=0;i<size;i++){
+		printf("-");
+	}
+	printf("\n");
+	
+	for(i=0;i<offset;i++){
+		printf(" ");
+	}
+	printf("| ");
+
+	switch(align){
+		case 0:
+			break;
+		case 1:	
+			for(i=0;i<(size-(len+4))/2;i++){
+				printf(" ");
+			}
+			break;
+		case 2:
+			for(i=0;i<(size-(len+4));i++){
+				printf(" ");
+			}
+			break;
+	}
+	printf("%s",title);
+	
+	switch(align){
+		case 0:
+			for(i=0;i<(size-(len+4));i++){
+				printf(" ");
+			}	
+			break;
+		case 1:
+			i=0;
+			if(len%2==0){i--;} // for even titles prints an extra space.
+			for(;i<(size-(len+4))/2;i++){
+				printf(" ");
+			}
+			break;
+		case 2:
+			break;
+	}
+	
+	printf(" |\n");
+
+	if(stacking){return;}
+	
+	for(i=0;i<offset;i++)
+		printf(" ");
+	for(i=0;i<size;i++)
+		printf("-");
 }
 
 char home(int pw_count){
@@ -59,13 +150,7 @@ char home(int pw_count){
 	printf("\t\t\t*                                               *\n");
 	printf("\t\t\t*         Brought To You By Team CP020          *\n");
 	printf("\t\t\t*************************************************\n\n\t");
-	for(int i=0;i<80;i++)
-		printf("-");
-	time(&t);
-	printf("\n\t\t\tCurrent date and time : %s",ctime(&t));
-	printf("\t");
-	for(int i=0;i<80;i++)
-		printf("-");
+	footer();
 	if(pw_count>2){
 		printf("\n\t\t                 Press ANYKEY For MAIN MENU.\n");	
 	}
@@ -79,7 +164,7 @@ char exitPage(){
     system("cls");
     printf("\n\t -------------------------------------------------------------------------------\n");
     printf("\t|                                                                               |\n");
-    printf("\t|         OOOOOO     O     O        O        O       O    O  O    OOOOOO        |\n");
+    printf("\t|        OOOOOOO     O     O        O        O       O    O  O    OOOOOO        |\n");
     printf("\t|           O        O     O       O O       O O     O    O O     O             |\n");
     printf("\t|           O        OOOOOOO      O O O      O  O    O    OO      OOOOOO        |\n");
     printf("\t|           O        O     O     O     O     O   O   O    O O          O        |\n");
@@ -91,63 +176,38 @@ char exitPage(){
     char choice = getch();
     return choice;
 }
+
 char menu(int choice_menu){
 	time_t t;
+	char choice;
 	system("cls"); 
-	printf("\n\t");    
-	for(int i=0;i<80;i++){		
-	    printf("-");
-	}
 	if(choice_menu==0)
-		printf("\n \t  ****************************  |ADMIN OPTIONS|  *************************** \n\t");
-	else if(choice_menu=1)
-		printf("\n \t  ******************************  |MAIN MENU|  ***************************** \n\t");
-	for(int i=0;i<80;i++){
-		printf("-");
-	}
+		header("ADMIN OPTIONS");
+	if(choice_menu==1)
+		header("MAIN MENU");
 	printf("\n\n\n");
-	printf("\t\t\t         *Please select your choice*");
+	printf("\t\t\t           *Please select your choice*");
 	printf("\n\n\n");
-	printf("\n\t\t\t    -------------------------------------");
 	switch(choice_menu){
 		case 0:
-			printf("\n\t\t\t    | PRESS 1 -> Change Base Tariff     |");
+			button("PRESS 1 -> Change Base Tariff",39,29,0,1);
+			button("PRESS 2 -> Change Payment Deadline",39,29,0,1);
+			button("PRESS 3 -> Return to Home Screen",39,29,0,1);
+			button("PRESS 4 -> Exit",39,29,0,0);
 			break;
 		case 1:
-			printf("\n\t\t\t    | PRESS 1 -> Input Customer Data    |");
+			button("PRESS 1 -> Input Customer Data",39,29,0,1);
+			button("PRESS 2 -> Generate Bill",39,29,0,1);
+			button("PRESS 3 -> Return to Home Screen",39,29,0,1);
+			button("PRESS 4 -> Exit",39,29,0,0);
 			break;
 		default:
-			printf("ERROR 0.");
+			printf("DISPLAY ERROR.");
 			break;
 	}
-	printf("\n\t\t\t    -------------------------------------");
-	switch(choice_menu){
-		case 0:
-			printf("\n\t\t\t    | PRESS 2 -> Change Payment Deadline|");
-			break;
-		case 1:
-			printf("\n\t\t\t    | PRESS 2 -> Generate Bill          |");
-			break;
-		default:
-			printf("ERROR 0.");
-	    	break;          
-	}
-	printf("\n\t\t\t    -------------------------------------");
-	printf("\n\t\t\t    | PRESS 3 -> Return to Home Screen  |");
-	printf("\n\t\t\t    -------------------------------------");
-	printf("\n\t\t\t    | PRESS 4 -> Exit                   |");
-	printf("\n\t\t\t    -------------------------------------\n");
-	printf("\n\n\n\n\n\t");
-	for(int i=0;i<80;i++){
-	    printf("-");
-	}
-	time(&t);
-	printf("\n\t\t\tCurrent date and time : %s",ctime(&t));
-	printf("\t");
-	for(int i=0;i<80;i++){
-	    printf("-");
-	}
+	printf("\n\n\n\n\n\n\t");
+	footer();
 	printf("\n");
-	char choice = getch();
+    choice = getch();
 	return choice;
 }
