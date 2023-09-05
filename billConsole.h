@@ -38,7 +38,7 @@ void display_billByid(Info* head, const char* required_ID) {
 
 // Function to print all bills in the linked list
 void display_allBills(Info* head) {
-
+    system("cls");
     char ch;
     Info* current = head;
     printf("Bills of all the users:\n");
@@ -50,7 +50,7 @@ void display_allBills(Info* head) {
         printf("\n\t\tYour Electricity BILL  : Rs. %.2lf \n\n\n",current->amount); // The struct Total Amount calculated should be added
         printf("\t    --------------------------------------------------------\n");
 
-        printf("\t");
+        printf("\n\t");
         footer();
         printf("USE ARROW KEYS TO NAVIGATE BILLS       PRESS ANYKEY TO STOP VIEWING");
         ch = getch();
