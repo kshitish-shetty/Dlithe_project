@@ -69,7 +69,7 @@ int printBilltoFile(Info* username, int flag) {
         printInFormat(user_,file_);
     } 
     else
-    while (temp->next != NULL) {
+    while (temp != NULL) {
         printInFormat(temp,file_);
         temp = temp -> next;
     }

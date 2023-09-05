@@ -109,7 +109,7 @@ int main(int argc,char **argv)
 							break;
 						}
 					case '3':
-						printBilltoFile(head);
+						printBilltoFile(head, 0);
 						break;
 				}
 				break;
