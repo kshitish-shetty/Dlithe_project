@@ -212,10 +212,41 @@ char menu(int choice_menu){
 	return choice;
 }
 
-int inputmenu(){
+char inputmenu(){
 	time_t t;
+	char choice;
+	Info* head = NULL;
+	system("cls");
 	header("INPUT");
 	printf("\n\n\n");
 	printf("\t\t\t           *Please select Input format*");
 	printf("\n\n\n");
+	button("PRESS 1 -> Enter Individual Details",39,29,0,1);
+	button("PRESS 2 -> From FILE",39,29,0,1);
+	button("PRESS 3 -> BACK",39,29,0,0);
+	printf("\n\n\n\n\n\n\n\n\n\t");
+	footer();
+	printf("\n");
+	choice = getch();
+	return choice;
+}
+
+char outputmenu(){
+	time_t t;
+	char choice;
+	Info* head = NULL;
+	system("cls");
+	header("OUTPUT");
+	printf("\n\n\n");
+	printf("\t\t\t           *Please select Output format*");
+	printf("\n\n\n");
+	button("PRESS 1 -> Console & File",39,29,0,1);
+	button("PRESS 2 -> Console",39,29,0,1);
+	button("PRESS 2 -> File",39,29,0,1);
+	button("PRESS 3 -> BACK",39,29,0,0);
+	printf("\n\n\n\n\n\n\t");
+	footer();
+	printf("\n");
+	choice = getch();
+	return choice;
 }

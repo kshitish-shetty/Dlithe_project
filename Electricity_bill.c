@@ -16,7 +16,7 @@ int main(int argc,char **argv)
 	int i; // iteration variable.
     int width=99,height=30; // sets width and height of console window.
 	int pw_count=0; // keeps track of wrong login attempts.
-	int choice_admin=0,choice_main=0,login_flag=0,admin_exit=0;// flags to keep track of user choices.
+	int choice_admin=0,choice_main=0,login_flag=0,admin_exit=0,ex=0;// flags to keep track of user choices.
 	float base = 0.589;
 	int deadline = 0;
 	SetConsoleTitle("Electricity Bill Generator");
@@ -115,4 +115,4 @@ int main(int argc,char **argv)
 				break;
 		}
 	}while(1);
-}
+}	
