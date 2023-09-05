@@ -6,7 +6,7 @@
 #include"struct.h"
 
 // Function to read a string character by character while optionally not displaying said characters.
-void getString(char* arr,int hide){
+void getString(char* arr,int len,int hide){
 	 char ch;
 	 int i=0;
 	 while ((ch = getch()) != 13) {
@@ -16,7 +16,7 @@ void getString(char* arr,int hide){
  	            printf("\b \b");
  	            i--;
  	        }
- 	    } else if (i < 20) {
+ 	    } else if (i < len) {
  	        arr[i++] = ch;
 			if(hide)
  	        	printf("*");
