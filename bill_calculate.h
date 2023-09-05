@@ -1,3 +1,6 @@
+#ifndef BILL_CACULATE_H
+#define BILLCALCULATE_H
+
 #include "struct.h"  // Include necessary header file for Node and Info definitions
 // Default rate per unit
 
@@ -27,3 +30,5 @@ float update_rate(float newRate) {
     RATE=newRate;
     return(newRate);
 }
+
+#endif

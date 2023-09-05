@@ -7,24 +7,31 @@
 #include "fileinput.h"
 
 void getUserData(Info** head) {
-    char* name;
-    char* ID;
+    char name[20];
+    char ID[20];
     int month;
     int units;
      system("cls");
     header("INPUT");
-    printf("\n\n\n\n\n\t\t\t\t Customer Name :");//To get Customer Name
+    printf("\n\n\n");
+    button("Customer Name",39,29,1,0);
+    printf("\n\t\t\t\t");
     getString(name,15,0);
-    printf("\n\t\t\t\t Customer ID   :");//To get Customer ID
+    printf("\n");
+    button("Customer ID",39,29,1,0);//To get Customer ID
+    printf("\n\t\t\t\t");
     getString(ID,10,0);
-    printf("\n\t\t\t\t Billing Month (1-12)  :");
+    printf("\n");
+    button("Month number (1-12)",39,29,1,0);
+    printf("\n\t\t\t\t");
     scanf("%d",&month);
-    printf("\n\t\t\t\t Units         :");//TO get Units
+    printf("\n");
+    button("Units Consumed",39,29,1,0);//TO get Units
+    printf("\n\t\t\t\t");
     scanf("%d",&units);
-    printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\t");
+    printf("\n\n\n\t");
     footer();
     append(head,name,ID,month,units,0);
-    printf("\n");
     getch();
 }
 

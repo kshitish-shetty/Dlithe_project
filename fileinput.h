@@ -1,3 +1,6 @@
+#ifndef FILEINPUT_H
+#define FILEINPUT_H
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -84,15 +87,16 @@ void readFileData(Info** head, char* filename) {
 }
 
 
-// // Function to print the linked list
-// void printLinkedList(Info* head) {
-    // Info* current = head;
-    // while (current != NULL) {
-        // printf("Name: %s, ID: %s, Month: %d, Units: %d\n", current->name, current->ID, current->month, current->units);
-        // current = current->next;
-    // }
-// }
+// Function to print the linked list
+void printLinkedList(Info* head) {
+    Info* current = head;
+    while (current != NULL) {
+        printf("Name: %s, ID: %s, Month: %d, Units: %d\n", current->name, current->ID, current->month, current->units);
+        current = current->next;
+    }
+}
 
+#endif 
 // int main() {
     // Info* head = NULL;
 // 

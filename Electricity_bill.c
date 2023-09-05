@@ -8,6 +8,8 @@
 #include"fileinput.h"// functions for taking from file and storing in linked lists.
 #include"Adminfunc.h"// functions to carry out admin tasks.
 #include"consoleinput.h"
+#include"billconsole.h"
+#include"fileoutput.h"
 
 int main(int argc,char **argv)
 {
@@ -17,6 +19,7 @@ int main(int argc,char **argv)
     int width=99,height=30; // sets width and height of console window.
 	int pw_count=0; // keeps track of wrong login attempts.
 	int choice_admin=0,choice_main=0,login_flag=0,admin_exit=0;// flags to keep track of user choices.
+	Info* head = NULL;
 	float base = 0.589;
 	int deadline = 0;
 	SetConsoleTitle("Electricity Bill Generator");
@@ -88,7 +91,6 @@ int main(int argc,char **argv)
         switch(choice) // SWITCH STATEMENT
 		{
 			case '1':
-				Info* head = NULL;
 			    put = inputmenu(head);
 				switch(put){
 					case '1': 
@@ -98,6 +100,14 @@ int main(int argc,char **argv)
 				break;
 			case '2':
 			    put = outputmenu();
+				switch(put){
+					case '1': 
+					
+					case '2':
+						display_allBills(head);
+					case '3':
+						printBilltoFile(head);
+				}
 				break;
 			case '3':
 			    goto Home;

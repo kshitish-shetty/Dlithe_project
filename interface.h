@@ -208,7 +208,7 @@ char menu(int choice_menu){
 			printf("DISPLAY ERROR.");
 			break;
 	}
-	printf("\n\n\n\n\n\n\t");
+	printf("\n\n\n\n\n\n\n\n\t");
 	footer();
 	printf("\n");
     choice = getch();

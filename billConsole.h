@@ -1,6 +1,10 @@
+#ifndef BILLCONSOLE_H
+#define BILLCONSOLE_H
+
 #include<stdio.h>
 #include "struct.h"
 #include "interface.h"
+#include "bill_calculate.h"
 
 // Function to search and print a bill of a particular ID
 void display_billByid(Info* head, const char* required_ID) {
@@ -10,16 +14,12 @@ void display_billByid(Info* head, const char* required_ID) {
 
     while (current != NULL) {
         if (strcmp(current->ID, required_ID) == 0) {
+            calculate_bill(current);
             header("Electricity Bill");
             printf("\n\n\n\t\tCustomer Name          : %s",current->name); // Accessing the struct name member
             printf("\n\t\tCustomer ID            : %s", current->ID ); // Accesing the struct ID member 
             printf("\n\t\tMonth                  : %d",current->month); //Accessing the struct Month member
-
-            printf("\n\t\tPrevious Meter Reading : %.2f",current->pmr); // Accessing the struct PMR member
-            printf("\n\t\tCurrent Meter Reading  : %.2f",current->cmr); // Accessing the struct CMR member
             printf("\n\t\tTotal Units. Used      : %.2d",current->units); // Accessing the struct Total Units. member
-            printf("\n\t\tEnergy Charges.        : %.2lf unit",current->amount); // Accessing the struct Energy Charges. member
-
             printf("\n\t\tYour Electricity BILL  : Rs. %.2lf \n\n\n",current->amount); // The struct Total Amount calculated should be added
 
     
@@ -38,18 +38,31 @@ void display_billByid(Info* head, const char* required_ID) {
 
 // Function to print all bills in the linked list
 void display_allBills(Info* head) {
+
+    char ch;
     Info* current = head;
     printf("Bills of all the users:\n");
     header("Electricity Bill");
     while (current != NULL) {
+        calculate_bill(current);
         printf("\n\n\n\t\tCustomer Name          : %s",current->name); // Accessing the struct name member
         printf("\n\t\tCustomer ID            : %s", current->ID ); // Accesing the struct ID member
         printf("\n\t\tYour Electricity BILL  : Rs. %.2lf \n\n\n",current->amount); // The struct Total Amount calculated should be added
         printf("\t    --------------------------------------------------------\n");
-        current = current->next;
-    }
-    printf("\t");
-    footer();
+
+        printf("\t");
+        footer();
+        printf("USE ARROW KEYS TO NAVIGATE BILLS       PRESS ANYKEY TO STOP VIEWING");
+        ch = getch();
+        switch(ch){
+            case 39: //right arrow
+                current = current->next;
+                break;
+            case 37: //left arrow
+                current = current->prev;
+                break;
+            default: return;
+        }
 }
 
 
@@ -123,3 +136,4 @@ void display_allBills(Info* head) {
 //     printf("\t");
 //     footer();
 // }
+#endif
