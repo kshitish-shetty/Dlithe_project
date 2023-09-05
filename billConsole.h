@@ -63,6 +63,7 @@ void display_allBills(Info* head) {
                 break;
             default: return;
         }
+    }
 }
 
 
