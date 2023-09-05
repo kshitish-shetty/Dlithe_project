@@ -1,13 +1,21 @@
-#ifndef BILL_CACULATE_H
+#ifndef BILL_CALCULATE_H
 #define BILLCALCULATE_H
 
 #include "struct.h"  // Include necessary header file for Node and Info definitions
 
+float base = 0.059;
+
+void changeBaseTariff(){
+    system("cls");
+    printf("enter updated base value: ");
+    scanf("%f",&base);
+}
 
 // Calculate bill based on the given rate
 void calculate_bill(Info* user) {
+
     int units_consumed = user->units;
-    float total_bill = units_consumed * 0.59;
+    float total_bill = units_consumed * base;
     user->amount = total_bill;
 }
 /*

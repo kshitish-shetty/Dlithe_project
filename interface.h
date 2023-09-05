@@ -194,9 +194,8 @@ char menu(int choice_menu){
 	switch(choice_menu){
 		case 0:
 			button("PRESS 1 -> Change Base Tariff",39,29,0,1);
-			button("PRESS 2 -> Change Payment Deadline",39,29,0,1);
-			button("PRESS 3 -> Return to Home Screen",39,29,0,1);
-			button("PRESS 4 -> Exit",39,29,0,0);
+			button("PRESS 2 -> Return to Home Screen",39,29,0,1);
+			button("PRESS 3 -> Exit",39,29,0,0);
 			break;
 		case 1:
 			button("PRESS 1 -> Input Customer Data",39,29,0,1);
@@ -224,7 +223,7 @@ char inputmenu(Info* head){
 	printf("\n\n\n");
 	printf("\t\t\t           *Please select Input format*");
 	printf("\n\n\n");
-	button("PRESS 1 -> Enter Individual Details",39,29,0,1);
+	button("PRESS 1 -> Enter USER Details",39,29,0,0);
 	//button("PRESS 2 -> From FILE",39,29,0,0);
 	printf("\n\n\n\n\n\n\n");
 	printf("\t\t\t         USER DETAILS PRESENT IN SYSTEM: %d",len);

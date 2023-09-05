@@ -42,6 +42,7 @@ void printInFormat(Info* user,FILE* file){
 /*-----this method is responsible to print all the user data to the file in format----*/
     int TILE_DASH = 26, DASH = 39;         // always we can adjust the size of the area here
     printHead_(TILE_DASH,file);
+    calculate_bill(user);
     print_(DASH,file);
     fprintf(file,"\nCustomer Name          : %s",user->name); // the struct name member should be accessed
     fprintf(file,"\nCustomer ID            : %s",user->ID);   // the struct ID member should be accessed 

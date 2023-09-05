@@ -52,21 +52,14 @@ void display_allBills(Info* head) {
 
         printf("\t");
         footer();
-        printf("\n\tUse LEFT and RIGHT Arrow Keys to Navigate      UP or DOWN to EXIT ");
-        if (getch() == '\033') { // if the first value is esc
-            getch(); // skip the [
-            switch(getch()) { // the real value
-            case 'A':
-                return;// code for arrow up
-            case 'B':
-                return;  // code for arrow down
-            case 'C':
-                current=current->next;// code for arrow right
-                break;
-            case 'D':
-                current=current->prev;// code for arrow left
-                break;
-            }
+        printf("\n\tUse LEFT and RIGHT Arrow Keys to Navigate      ANYKEY to EXIT ");
+        ch = _getch ();
+        if (ch == 0 || ch == 224)
+        {
+            if(_getch()==77)
+                    current=current->next;
+            if(_getch()==75)
+                   current=current->prev;
         }
     }
 }

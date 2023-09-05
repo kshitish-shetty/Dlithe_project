@@ -6,7 +6,6 @@
 #include"struct.h" // Structure and functions for handling linked lists.
 #include"interface.h"// functions for the user interface.
 #include"fileinput.h"// functions for taking from file and storing in linked lists.
-#include"Adminfunc.h"// functions to carry out admin tasks.
 #include"consoleinput.h"
 #include"billconsole.h"
 #include"fileoutput.h"
@@ -65,15 +64,11 @@ int main(int argc,char **argv)
 		switch(choice){
 			case '1':
 				system("cls");
-				base = changeBaseTariff(base);
+				changeBaseTariff();
 				break;
 			case '2':
-				system("cls");
-			    deadline = changeDeadline(deadline);
-				break;
-			case '3':
 				goto Home;
-			case '4':
+			case '3':
 				admin_exit=1; 
 				goto Exit;
 			default:
