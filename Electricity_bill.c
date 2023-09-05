@@ -92,7 +92,7 @@ int main(int argc,char **argv)
 			    put = inputmenu(head);
 				switch(put){
 					case '1': 
-						GetUserData(&head);
+						getUserData(&head);
 						break;
 				}
 				break;
