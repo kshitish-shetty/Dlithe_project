@@ -1,3 +1,6 @@
+#ifndef INTERFACE_H
+#define INTERFACE_H
+
 #include<stdio.h>
 #include<conio.h>
 #include<stdlib.h>
@@ -252,3 +255,5 @@ char outputmenu(){
 	choice = getch();
 	return choice;
 }
+
+#endif

@@ -1,3 +1,6 @@
+#ifndef CONSOLEINPUT_H
+#define CONSOLEINPUT_H
+
 #include <stdio.h>
 #include "interface.h"
 #include "struct.h"
@@ -24,3 +27,5 @@ void getUserData(Info** head) {
     printf("\n");
     getch();
 }
+
+#endif
