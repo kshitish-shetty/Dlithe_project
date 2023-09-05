@@ -105,8 +105,12 @@ int main(int argc,char **argv)
 					
 					case '2':
 						display_allBills(head);
+						if(ch==2){
+							break;
+						}
 					case '3':
 						printBilltoFile(head);
+						break;
 				}
 				break;
 			case '3':
