@@ -45,6 +45,20 @@ void append(Info** head, char* name, char* ID, int month, int units, double amou
     newNode->prev = current;
 }
 
+// Function to find the length of linked list
+int findLength(struct Info* head) {
+    int length = 0;
+    struct Info* current = head;
+
+    // Traverse the list and count nodes
+    while (current != NULL) {
+        length++;
+        current = current->next;
+    }
+
+    return length;
+}
+
 // Function to free memory after use 
 void freeList(Info* head) {
     Info* current = head;

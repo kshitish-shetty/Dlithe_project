@@ -1,3 +1,6 @@
+#ifndef FILEINPUT_H
+#define FILEINPUT_H
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -6,7 +9,7 @@
 #include"struct.h"
 
 // Function to read a string character by character while optionally not displaying said characters.
-void getString(char* arr,int hide){
+void getString(char* arr,int len,int hide){
 	 char ch;
 	 int i=0;
 	 while ((ch = getch()) != 13) {
@@ -16,7 +19,7 @@ void getString(char* arr,int hide){
  	            printf("\b \b");
  	            i--;
  	        }
- 	    } else if (i < 20) {
+ 	    } else if (i < len) {
  	        arr[i++] = ch;
 			if(hide)
  	        	printf("*");
@@ -85,14 +88,15 @@ void readFileData(Info** head, char* filename) {
 
 
 // Function to print the linked list
-// void printLinkedList(Info* head) {
-    // Info* current = head;
-    // while (current != NULL) {
-        // printf("Name: %s, ID: %s, Month: %d, Units: %d\n", current->name, current->ID, current->month, current->units);
-        // current = current->next;
-    // }
-// }
+void printLinkedList(Info* head) {
+    Info* current = head;
+    while (current != NULL) {
+        printf("Name: %s, ID: %s, Month: %d, Units: %d\n", current->name, current->ID, current->month, current->units);
+        current = current->next;
+    }
+}
 
+#endif 
 // int main() {
     // Info* head = NULL;
 // 

@@ -1,3 +1,6 @@
+#ifndef INTERFACE_H
+#define INTERFACE_H
+
 #include<stdio.h>
 #include<conio.h>
 #include<stdlib.h>
@@ -185,10 +188,6 @@ char menu(int choice_menu){
 		header("ADMIN OPTIONS");
 	if(choice_menu==1)
 		header("MAIN MENU");
-	if(choice_menu==2)
-		header("INPUT OPTIONS");
-	if(choice_menu==3)
-		header("OUTPUT OPTIONS");
 	printf("\n\n\n");
 	printf("\t\t\t           *Please select your choice*");
 	printf("\n\n\n");
@@ -205,17 +204,56 @@ char menu(int choice_menu){
 			button("PRESS 3 -> Return to Home Screen",39,29,0,1);
 			button("PRESS 4 -> Exit",39,29,0,0);
 			break;
-		case 2:
-			break;
-		case 3:
-			break;
 		default:
 			printf("DISPLAY ERROR.");
 			break;
 	}
-	printf("\n\n\n\n\n\n\t");
+	printf("\n\n\n\n\n\n\n\n\t");
 	footer();
 	printf("\n");
     choice = getch();
 	return choice;
 }
+
+char inputmenu(Info* head){
+	time_t t;
+	char choice;
+	int len = findLength(head);
+	system("cls");
+	header("INPUT");
+	printf("\n\n\n");
+	printf("\t\t\t           *Please select Input format*");
+	printf("\n\n\n");
+	button("PRESS 1 -> Enter Individual Details",39,29,0,1);
+	//button("PRESS 2 -> From FILE",39,29,0,0);
+	printf("\n\n\n\n\n\n\n");
+	printf("\t\t\t         USER DETAILS PRESENT IN SYSTEM: %d",len);
+	printf("\n\n\n\n\n\n\n\t");
+	footer();
+	printf("\n\t\t\t        PRESS ANYKEY TO RETURN TO MAIN MENU");
+	printf("\n");
+	choice = getch();
+	return choice;
+}
+
+char outputmenu(){
+	time_t t;
+	char choice;
+	Info* head = NULL;
+	system("cls");
+	header("OUTPUT");
+	printf("\n\n\n");
+	printf("\t\t\t           *Please select Output format*");
+	printf("\n\n\n");
+	button("PRESS 1 -> Console & File",39,29,0,1);
+	button("PRESS 2 -> Console",39,29,0,1);
+	button("PRESS 3 -> File",39,29,0,0);
+	printf("\n\n\n\n\n\n\n\n\n\t");
+	footer();
+	printf("\n\t\t\t        PRESS ANYKEY TO RETURN TO MAIN MENU");	
+	printf("\n");
+	choice = getch();
+	return choice;
+}
+
+#endif

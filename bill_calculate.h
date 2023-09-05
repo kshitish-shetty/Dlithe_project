@@ -1,14 +1,14 @@
-#include "struct.h"  // Include necessary header file for Node and Info definitions
-// Default rate per unit
+#ifndef BILL_CACULATE_H
+#define BILLCALCULATE_H
 
-// Global variable to store the rate per unit
-float RATE = 0.59;
+#include "struct.h"  // Include necessary header file for Node and Info definitions
+
 
 // Calculate bill based on the given rate
-float calculate_bill(Info* user) {
+void calculate_bill(Info* user) {
     int units_consumed = user->units;
-    float total_bill = units_consumed * RATE;
-    return(total_bill);
+    float total_bill = units_consumed * 0.59;
+    user->amount = total_bill;
 }
 /*
 usage of the funcion:
@@ -23,7 +23,9 @@ usage of the funcion:
 
 
 // Update the rate per unit using user input
-float update_rate(float newRate) {
-    RATE=newRate;
-    return(newRate);
-}
+// float update_rate(float newRate) {
+    // RATE=newRate;
+    // return(newRate);
+// }
+
+#endif
