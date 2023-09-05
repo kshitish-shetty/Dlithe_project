@@ -211,3 +211,11 @@ char menu(int choice_menu){
     choice = getch();
 	return choice;
 }
+
+int inputmenu(){
+	time_t t;
+	header("INPUT");
+	printf("\n\n\n");
+	printf("\t\t\t           *Please select Input format*");
+	printf("\n\n\n");
+}

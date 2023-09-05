@@ -89,8 +89,10 @@ int main(int argc,char **argv)
 		{
 			case '1':
 			    inputmenu();
+				break;
 			case '2':
 			    outputmenu();
+				break;
 			case '3':
 			    goto Home;
 			case '4':
