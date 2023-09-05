@@ -5,12 +5,6 @@
 #include "struct.h"
 #include "fileOutput.h"
 
-void print_(int, FILE*);
-void printHead_(int, FILE*);
-void printInFormat(Info*,FILE*);
-int printBilltoFile(Info*);
-
-
 /*
 NOTE SETUP FOR ADMIN :
 One can easily include the file name as header file 
@@ -21,15 +15,6 @@ One can easily include the file name as header file
  printBilltoFile(Info* username)
  three auxillary methods are present to provide the interface.
 */
-
-int printBilltoFile(Info* username) {
-/*-----INTERFACE FILE-DRIVING METHOD----*/
-    Info* user_ = username;
-    FILE* file_ = fopen("ElectricityBill.txt","a");
-    printInFormat(user_,file_);
-    fclose(file_);
-    return 0;
-}
 
 void print_(int howMuch , FILE* file){
 /*-----this method is responsible to print dash ----*/
@@ -73,6 +58,15 @@ void printInFormat(Info* user,FILE* file){
 
     print_(DASH,file);
     fprintf(file,"NOTE:DUE IS 30 DAYS FROM TODAY\n\tBILL MUST BE PAID WITHIN THE DUE.\n\tELSE YOU MAY BE CHARGED EXTRA.\n\n");
+}
+
+int printBilltoFile(Info* username) {
+/*-----INTERFACE FILE-DRIVING METHOD----*/
+    Info* user_ = username;
+    FILE* file_ = fopen("ElectricityBill.txt","a");
+    printInFormat(user_,file_);
+    fclose(file_);
+    return 0;
 }
 
 #endif
