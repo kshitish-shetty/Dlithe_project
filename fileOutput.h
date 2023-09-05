@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include "struct.h"
 #include "fileOutput.h"
-
+time_t t;
 /*
 NOTE SETUP FOR ADMIN :
 One can easily include the file name as header file 
@@ -48,8 +48,8 @@ void printInFormat(Info* user,FILE* file){
     fprintf(file,"\nMonth                  : %d",user->month);  // the struct Month member should be accessed
 
     print_(DASH,file);
-    fprintf(file,"\nPrevious Meter Reading : %.2f unit",user->pmr);   // the struct PMR member should be accessed
-    fprintf(file,"\nCurrent Meter Reading  : %.2f unit",user->cmr);   // the struct CMR member should be accessed
+    // fprintf(file,"\nPrevious Meter Reading : %.2f unit",user->pmr);   // the struct PMR member should be accessed
+    // fprintf(file,"\nCurrent Meter Reading  : %.2f unit",user->cmr);   // the struct CMR member should be accessed
     fprintf(file,"\nTotal Units. Used      : %.2f unit",user->units);  // the struct Total Units. member should be accessed
     fprintf(file,"\nEnergy Charges.        : %.2lf unit",user->amount); // the struct Energy Charges. member should be accessed
 
@@ -60,11 +60,19 @@ void printInFormat(Info* user,FILE* file){
     fprintf(file,"NOTE:DUE IS 30 DAYS FROM TODAY\n\tBILL MUST BE PAID WITHIN THE DUE.\n\tELSE YOU MAY BE CHARGED EXTRA.\n\n");
 }
 
-int printBilltoFile(Info* username) {
+int printBilltoFile(Info* username, int flag) {
 /*-----INTERFACE FILE-DRIVING METHOD----*/
     Info* user_ = username;
+    Info* temp = user_;
     FILE* file_ = fopen("ElectricityBill.txt","a");
-    printInFormat(user_,file_);
+    if (flag == 1) {
+        printInFormat(user_,file_);
+    } 
+    else
+    while (temp->next != NULL) {
+        printInFormat(temp,file_);
+        temp = temp -> next;
+    }
     fclose(file_);
     return 0;
 }
