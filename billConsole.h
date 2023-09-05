@@ -38,14 +38,13 @@ void display_billByid(Info* head, const char* required_ID) {
 
 // Function to print all bills in the linked list
 void display_allBills(Info* head) {
-    system("cls");
     char ch;
     int intch;
     Info* current = head;
-    printf("Bills of all the users:\n");
-    header("Electricity Bill");
     while (current != NULL) {
         calculate_bill(current);
+        system("cls");
+        header("Electricity Bill");
         printf("\n\n\n\t\tCustomer Name          : %s",current->name); // Accessing the struct name member
         printf("\n\t\tCustomer ID            : %s", current->ID ); // Accesing the struct ID member
         printf("\n\t\tYour Electricity BILL  : Rs. %.2lf \n\n\n",current->amount); // The struct Total Amount calculated should be added
@@ -53,20 +52,21 @@ void display_allBills(Info* head) {
 
         printf("\t");
         footer();
-        printf("\nUSE ARROW KEYS TO NAVIGATE BILLS       PRESS ANYKEY TO STOP VIEWING");
-        ch = getch();
-        intch = (int) ch;
-        switch(intch){
-            case 39: //right arrow
-                current = current->next;
+        printf("\n\tUse LEFT and RIGHT Arrow Keys to Navigate      UP or DOWN to EXIT ");
+        if (getch() == '\033') { // if the first value is esc
+            getch(); // skip the [
+            switch(getch()) { // the real value
+            case 'A':
+                return;// code for arrow up
+            case 'B':
+                return;  // code for arrow down
+            case 'C':
+                current=current->next;// code for arrow right
                 break;
-            case 37: //left arrow
-                current = current->prev;
+            case 'D':
+                current=current->prev;// code for arrow left
                 break;
-            default: 
-             printf("you fucked up nigga");
-             getch();
-             return;
+            }
         }
     }
 }
