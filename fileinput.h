@@ -84,7 +84,7 @@ void readFileData(Info** head, char* filename) {
 }
 
 
-// Function to print the linked list
+// // Function to print the linked list
 // void printLinkedList(Info* head) {
     // Info* current = head;
     // while (current != NULL) {
