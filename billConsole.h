@@ -40,6 +40,7 @@ void display_billByid(Info* head, const char* required_ID) {
 void display_allBills(Info* head) {
     system("cls");
     char ch;
+    int intch;
     Info* current = head;
     printf("Bills of all the users:\n");
     header("Electricity Bill");
@@ -50,18 +51,22 @@ void display_allBills(Info* head) {
         printf("\n\t\tYour Electricity BILL  : Rs. %.2lf \n\n\n",current->amount); // The struct Total Amount calculated should be added
         printf("\t    --------------------------------------------------------\n");
 
-        printf("\n\t");
+        printf("\t");
         footer();
-        printf("USE ARROW KEYS TO NAVIGATE BILLS       PRESS ANYKEY TO STOP VIEWING");
+        printf("\nUSE ARROW KEYS TO NAVIGATE BILLS       PRESS ANYKEY TO STOP VIEWING");
         ch = getch();
-        switch(ch){
+        intch = (int) ch;
+        switch(intch){
             case 39: //right arrow
                 current = current->next;
                 break;
             case 37: //left arrow
                 current = current->prev;
                 break;
-            default: return;
+            default: 
+             printf("you fucked up nigga");
+             getch();
+             return;
         }
     }
 }
