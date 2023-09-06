@@ -43,7 +43,6 @@ void header(char *title){
 void footer(){
 	int i;
 	time_t t; // stores time data.
-	time(&t);
 	for(i=0;i<80;i++){
 		printf("-");
 	}	
