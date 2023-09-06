@@ -53,13 +53,14 @@ void display_allBills(Info* head) {
         printf("\t");
         footer();
         printf("\n\tUse LEFT and RIGHT Arrow Keys to Navigate      ANYKEY to EXIT ");
-        ch = _getch ();
-        if (ch == 0 || ch == 224)
+        if (ch=_getch())
         {
-            if(_getch()==77)
+            ch = _getch();
+            if(ch==77)
                     current=current->next;
-            if(_getch()==75)
+            if(ch==75)
                    current=current->prev;
+            Sleep(100);
         }
     }
 }
