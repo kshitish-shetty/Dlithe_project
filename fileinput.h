@@ -107,7 +107,7 @@ char getFileInfo(Info* head){
 	printf("\t\t    *Please make sure file is in same Directory as Executable*");
 	printf("\n\n\n");
 	button("PRESS 2 -> From FILE",39,29,0,0);
-    printf("\n\t\t\t");
+    printf("\n\t\t\t\t");
     getString(filename,20,0);
     readFileData(&head, filename);
 	printf("\n\n\n\n\n");
