@@ -91,6 +91,9 @@ int main(int argc,char **argv)
 					case '1': 
 						getUserData(&head);
 						break;
+					case '2':
+						getFileInfo(head);
+						break;
 				}
 				break;
 			case '2':

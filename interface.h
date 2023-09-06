@@ -215,7 +215,6 @@ char menu(int choice_menu){
 }
 
 char inputmenu(Info* head){
-	time_t t;
 	char choice;
 	int len = findLength(head);
 	system("cls");
@@ -223,8 +222,8 @@ char inputmenu(Info* head){
 	printf("\n\n\n");
 	printf("\t\t\t           *Please select Input format*");
 	printf("\n\n\n");
-	button("PRESS 1 -> Enter USER Details",39,29,0,0);
-	//button("PRESS 2 -> From FILE",39,29,0,0);
+	button("PRESS 1 -> Enter USER Details",39,29,0,1);
+	button("PRESS 2 -> From FILE",39,29,0,0);
 	printf("\n\n\n\n\n\n\n");
 	printf("\t\t\t         USER DETAILS PRESENT IN SYSTEM: %d",len);
 	printf("\n\n\n\n\n\n\n\t");

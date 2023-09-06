@@ -30,6 +30,7 @@ void getString(char* arr,int len,int hide){
  	arr[i] = '\0';
 }
 
+
 // Function to read data from the file and store it in a linked list
 void readFileData(Info** head, char* filename) {
     
@@ -94,6 +95,30 @@ void printLinkedList(Info* head) {
         printf("Name: %s, ID: %s, Month: %d, Units: %d\n", current->name, current->ID, current->month, current->units);
         current = current->next;
     }
+}
+
+char getFileInfo(Info* head){
+	char choice;
+    char filename[20];
+	int len = findLength(head);
+	system("cls");
+	header("INPUT");
+	printf("\n\n\n");
+	printf("\t\t    *Please make sure file is in same Directory as Executable*");
+	printf("\n\n\n");
+	button("PRESS 2 -> From FILE",39,29,0,0);
+    printf("\n\t\t\t");
+    getString(filename,20,0);
+    readFileData(&head, filename);
+	printf("\n\n\n\n\n");
+    len = findLength(head);
+	printf("\t\t\t         USER DETAILS PRESENT IN SYSTEM: %d",len);
+	printf("\n\n\n\n\n\n\n\t");
+	footer();
+	printf("\n\t\t\t        PRESS ANYKEY TO RETURN TO MAIN MENU");
+	printf("\n");
+	choice = getch();
+	return choice;
 }
 
 #endif 
