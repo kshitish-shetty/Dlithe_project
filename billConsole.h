@@ -45,10 +45,13 @@ void display_allBills(Info* head) {
         calculate_bill(current);
         system("cls");
         header("Electricity Bill");
-        printf("\n\n\n\t\tCustomer Name          : %s",current->name); // Accessing the struct name member
+        printf("\n\n\n\n\t\tCustomer Name          : %s",current->name); // Accessing the struct name member
         printf("\n\t\tCustomer ID            : %s", current->ID ); // Accesing the struct ID member
+        printf("\n\t\tMonth                  : %d",current->month); //Accessing the struct Month member
+        printf("\n\t\tTotal Units. Used      : %.2d",current->units); // Accessing the struct Total Units. member
         printf("\n\t\tYour Electricity BILL  : Rs. %.2lf \n\n\n",current->amount); // The struct Total Amount calculated should be added
-        printf("\t    --------------------------------------------------------\n");
+        printf("\t\tNOTE:DUE IS 30 DAYS FROM TODAY\n\t\t\tBILL MUST BE PAID WITHIN THE DUE.\n\t\t\tELSE YOU MAY BE CHARGED EXTRA.\n\n\n\n\t");
+        printf("\n\n");
 
         printf("\t");
         footer();
