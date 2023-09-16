@@ -6,5 +6,5 @@ temp.c
 tempMain.c
 *.txt
 a.exe
-Bill.rc
+bill.rc
 resource.h
