@@ -5,4 +5,4 @@ temp.c
 tempMain.c
 *.txt
 resource.h
-Bill.rc
+*.rc
