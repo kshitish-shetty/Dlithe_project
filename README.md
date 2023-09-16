@@ -34,16 +34,27 @@ For support, email kshitishshetty@gmail.com
 
 ## Screenshots
 
+Home Page
+
 ![Home page](screenshots/home.png "Home page")
+
+Main Menu
 
 ![Main Menu](screenshots/mainmenu.png "Main Menu")
 
+Admin Login Page
 
-![Admin Login Page](screenshots/adminmenu.png "Admin Login Page")
+![Admin Login Page](screenshots/adminlogin.png "Admin Login Page")
+
+Input Menu
 
 ![Input Menu](screenshots/inputmenu.png "Input Menu")
 
+Console Output
+
 ![Console Output](screenshots/output.png "Console Output")
+
+Exit Confirmation Page
 
 ![Exit Confirmation Page](screenshots/exitmenu.png "Exit Confirmation Page")
 
