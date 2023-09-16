@@ -5,7 +5,7 @@ The Electricity Bill Generator project is designed to streamline and automate th
 
 It is an application which will take input manually or either in the form of a .csv file which has to be of the format
 
-name,ID,month,units
+name,ID,month(1-12),units
 
 For output we have provided options of veiwing on console, downloading onto an file or both of the previous options.
 
