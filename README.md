@@ -5,20 +5,14 @@ The Electricity Bill Generator project is designed to streamline and automate th
 
 It is an application which will take input manually or either in the form of a .csv file which has to be of the format
 
-name,ID,month(1-12),units
+name,ID,month,units
 
-For output we have provided options of veiwing on console, downloading onto an file or both of the previous options.
-
-There is also an option to access admin menu where tariff rate and due date can be changed allowing one to customise this software according to the need and allowing adaptability.
+there is also an option to access admin menu where tariff rate and due date can be changed allowing one to customise this software according to the need and allowing adaptability.
 The admin menu can be accessed by these login details which are currently hardcoded.
 
-username : ADMIN 
+username : ADMIN
 
 Password : CP020
-
-To compile the file yourself please open the repository, then with gcc installed enter the following command into the terminal
-
-gcc -o BillGen Electricity_Bill.c my.res 
 
 ## Authors
 
@@ -36,4 +30,14 @@ gcc -o BillGen Electricity_Bill.c my.res
 ## Support
 
 For support, email kshitishshetty@gmail.com
+
+
+## Screenshots
+
+![Home page](screenshots/home.png "Home page")
+![Main Menu](screenshots/mainmenu.png "Main Menu")
+![Admin Login Page](screenshots/adminmenu.png "Admin Login Page")
+![Input Menu](screenshots/inputmenu.png "Input Menu")
+![Console Output](screenshots/output.png "Console Output")
+![Exit Confirmation Page](screenshots/exitmenu.png "Exit Confirmation Page")
 
