@@ -11,7 +11,8 @@ for output we have provided options of veiwing on console, downloading onto an f
 there is also an option to access admin menu where tariff rate and due date can be changed allowing one to customise this software according to the need and allowing adaptability.
 The admin menu can be accessed by these login details which are currently hardcoded.
 
-username : ADMIN
+username : ADMIN 
+
 
 Password : CP020
 
