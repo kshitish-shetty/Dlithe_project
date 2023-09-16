@@ -14,7 +14,6 @@ The admin menu can be accessed by these login details which are currently hardco
 
 username : ADMIN 
 
-
 Password : CP020
 
 ## Authors
