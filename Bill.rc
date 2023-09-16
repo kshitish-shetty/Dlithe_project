@@ -1,1 +1,4 @@
-a ICON "icon.ico"
+#include "resource.h"
+ 
+IDI_ICON ICON "icon.ico"
+
