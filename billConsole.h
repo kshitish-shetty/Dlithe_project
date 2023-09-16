@@ -55,16 +55,18 @@ void display_allBills(Info* head) {
 
         printf("\t");
         footer();
-        printf("\n\tUse LEFT and RIGHT Arrow Keys to Navigate      ANYKEY to EXIT ");
+        printf("\n\tUse LEFT and RIGHT Arrow Keys to Navigate            Double Press ANYKEY to EXIT\n ");
         if (ch=_getch())
         {
             ch = _getch();
             if(ch==77)
                     current=current->next;
-            if(ch==75)
+            else if(ch==75)
                    current=current->prev;
+            else
+                break;
             Sleep(100);
-        }
+        }        
     }
 }
 

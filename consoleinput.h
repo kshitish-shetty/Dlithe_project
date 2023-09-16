@@ -31,7 +31,7 @@ void getUserData(Info** head) {
     printf("\n");
     button("Units Consumed",39,29,1,0);//TO get Units
     printf("\n\t\t\t\t");
-    getString(unit,2,0);
+    getString(unit,8,0);
     units = atoi(unit);
     printf("\n\n\n\t");
     footer();
