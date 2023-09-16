@@ -38,6 +38,7 @@ For support, email kshitishshetty@gmail.com
 
 ![Main Menu](screenshots/mainmenu.png "Main Menu")
 
+
 ![Admin Login Page](screenshots/adminmenu.png "Admin Login Page")
 
 ![Input Menu](screenshots/inputmenu.png "Input Menu")
