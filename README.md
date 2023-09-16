@@ -14,24 +14,6 @@ username : ADMIN
 
 Password : CP020
 
-## Authors
-
-- [@Kshitish Shetty](https://www.github.com/kshitish-shetty)
-- [@Bharath P](https://www.github.com/bharathpofficial)
-- [@Avish Kumar](https://www.github.com/AK0728)
-- [@Dhanush S U](https://www.github.com/dhanush182003)
-- [@Shriman Jain](https://www.github.com/Shriman-Jain)
-
-## License
-
-[GNU GPL ](https://www.gnu.org/licenses/)
-
-
-## Support
-
-For support, email kshitishshetty@gmail.com
-
-
 ## Screenshots
 
 Home Page
@@ -57,4 +39,23 @@ Console Output
 Exit Confirmation Page
 
 ![Exit Confirmation Page](screenshots/exitmenu.png "Exit Confirmation Page")
+
+
+## Authors
+
+- [@Kshitish Shetty](https://www.github.com/kshitish-shetty)
+- [@Bharath P](https://www.github.com/bharathpofficial)
+- [@Avish Kumar](https://www.github.com/AK0728)
+- [@Dhanush S U](https://www.github.com/dhanush182003)
+- [@Shriman Jain](https://www.github.com/Shriman-Jain)
+
+## License
+
+[GNU GPL ](https://www.gnu.org/licenses/)
+
+
+## Support
+
+For support, email kshitishshetty@gmail.com
+
 
