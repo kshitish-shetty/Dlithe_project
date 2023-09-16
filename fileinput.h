@@ -97,10 +97,10 @@ void printLinkedList(Info* head) {
     }
 }
 
-char getFileInfo(Info* head){
+char getFileInfo(Info** head){
 	char choice;
     char filename[20];
-	int len = findLength(head);
+	int len = findLength(*head);
 	system("cls");
 	header("INPUT");
 	printf("\n\n\n");
@@ -109,9 +109,9 @@ char getFileInfo(Info* head){
 	button("PRESS 2 -> From FILE",39,29,0,0);
     printf("\n\t\t\t\t");
     getString(filename,20,0);
-    readFileData(&head, filename);
+    readFileData(head, filename);
 	printf("\n\n\n\n\n");
-    len = findLength(head);
+    len = findLength(*head);
 	printf("\t\t\t         USER DETAILS PRESENT IN SYSTEM: %d",len);
 	printf("\n\n\n\n\n\n\n\t");
 	footer();
