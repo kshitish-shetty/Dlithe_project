@@ -12,6 +12,7 @@ there is also an option to access admin menu where tariff rate and due date can 
 The admin menu can be accessed by these login details which are currently hardcoded.
 
 username : ADMIN
+
 Password : CP020
 
 ## Authors
