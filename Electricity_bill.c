@@ -103,7 +103,7 @@ int main(int argc,char **argv)
 					
 					case '2':
 						display_allBills(head);
-						if(ch==2){
+						if(choice == '2'){
 							break;
 						}
 					case '3':
