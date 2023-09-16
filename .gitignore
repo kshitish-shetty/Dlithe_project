@@ -1,10 +1,8 @@
 
 *.json
 printTheformat.c
-reff_mage-for_project_output.jpeg
 temp.c
 tempMain.c
 *.txt
-a.exe
-bill.rc
 resource.h
+Bill.rc
