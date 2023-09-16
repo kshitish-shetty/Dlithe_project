@@ -16,6 +16,10 @@ username : ADMIN
 
 Password : CP020
 
+To compile the file yourself please open the repository, then with gcc installed, enter the following command into the terminal
+
+gcc -o BillGen Electricity_Bill.c my.res 
+
 ## Authors
 
 - [@Kshitish Shetty](https://www.github.com/kshitish-shetty)
