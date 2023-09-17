@@ -242,9 +242,9 @@ char outputmenu(){
 	printf("\n\n\n");
 	printf("\t\t\t           *Please select Output format*");
 	printf("\n\n\n");
-	button("PRESS 1 -> Console & File",39,29,0,1);
-	button("PRESS 2 -> Console",39,29,0,1);
-	button("PRESS 3 -> File",39,29,0,0);
+	button("PRESS 1 -> Console",39,29,0,1);
+	button("PRESS 2 -> File",39,29,0,1);
+	button("PRESS 3 -> Console & File",39,29,0,0);
 	printf("\n\n\n\n\n\n\n\n\n\t");
 	footer();
 	printf("\n\t\t\t        PRESS ANYKEY TO RETURN TO MAIN MENU");	

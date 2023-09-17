@@ -100,15 +100,16 @@ int main(int argc,char **argv)
 			    put = outputmenu();
 				switch(put){
 					case '1': 
-					
-					case '2':
+						outputboth:
 						display_allBills(head);
-						if(choice == '2'){
+						if(choice == '1'){
 							break;
 						}
-					case '3':
-						printBilltoFile(head);
+					case '2':
+						printBilltoFile(head);	
 						break;
+					case '3':
+						goto outputboth;
 				}
 				break;
 			case '3':

@@ -52,22 +52,31 @@ void display_allBills(Info* head) {
         printf("\n\t\tYour Electricity BILL  : Rs. %.2lf \n\n\n",current->amount); // The struct Total Amount calculated should be added
         printf("\t\tNOTE:DUE IS 30 DAYS FROM TODAY\n\t\t\tBILL MUST BE PAID WITHIN THE DUE.\n\t\t\tELSE YOU MAY BE CHARGED EXTRA.\n\n\n\n\t");
         printf("\n\n");
-
         printf("\t");
         footer();
         printf("\n\tUse LEFT and RIGHT Arrow Keys to Navigate            Double Press ANYKEY to EXIT\n ");
-        if (ch=_getch())
+        if (getch())
         {
-            ch = _getch();
-            if(ch==77)
-                    current=current->next;
-            else if(ch==75)
-                   current=current->prev;
-            else
+            ch = getch();
+            if(ch==77){
+                if(current->next == NULL){
+                    goto endofbill; //right now performs same role as "continue;" but has potential, 
+                                    //can be used to show a different screen when end of bill is reached.
+                }
+                current=current->next;
+            }    
+            else if(ch==75){
+                if(current->prev == NULL){
+                    goto endofbill;
+                }               
+                current=current->prev;
+            }
+            else{
                 break;
-            Sleep(100);
-        }        
-    }
+            }       
+        }
+        endofbill: //code for end of bill screen can be written below within while loop.
+    }   
 }
 
 
